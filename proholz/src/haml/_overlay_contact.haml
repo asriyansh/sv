@@ -1,0 +1,27 @@
+.overlay.overlay-contact
+	.container-fixed.valign
+		%span.oc-hide
+		.oc-container
+			%h2 Отправить сообщение
+			.padded
+				%form.validate{action: ""}
+					.input
+						%input{type: "text", required: true}
+						%span.placeholder Ваше имя
+					.input
+						%input{type: "email", required: true}
+						%span.placeholder Ваш e-mail
+					.input
+						%input{type: "tel"}
+						%span.placeholder Ваш телефон
+					.input
+						%textarea{required: true}
+						%span.placeholder Сообщение
+					.oc-captcha
+						%figure
+							%img{src: "images/captcha.jpg", alt: ""}
+						.input
+							%input{type: "text", autocomplete: "off", required: true, maxlength: 10}
+							%span.placeholder Код с картинки
+					.tac
+						%button.button.transparent Отправить сообщение

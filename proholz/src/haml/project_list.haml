@@ -1,0 +1,63 @@
+!!!
+%html{data: {modules: "inner"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Проекты финских домов из клееного бруса")
+	%body.inner
+		.page
+			.page-bg
+				.pb-image.fit-bg
+					%img{src: "images/index_bg_blurred.jpg", alt: ""}
+				.pb-overlay
+			.page-content
+				.pc-inner
+					=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+					%main
+						.container-fixed.padded
+							=Haml::Engine.new(File.read("src/haml/_breadcrumbs.haml")).render
+							%h1 Проекты финских домов из клееного бруса
+							.clearfix
+								%aside.pg-nav
+									.pgn-inner
+										%h2 Проекты
+										%ul
+											-["Дома до 100 м2", "Дома от 100 до 250 м2", "Дома более 250 м2", "Бани, гаражи, беседки", "Скандинавская cерия", "Коллекция Optima"].each_with_index do |i, j|
+												%li{class: ("active" if j == 0)}
+													%span= i
+									%a.pf-link{href: ""}
+										%span Фото готовых проектов
+								%section.pg-content
+									%article
+										%p В каталоге представлены готовые проекты домов и  Вы можете подобрать любой вариант, который Вас устроит. При выборе не надо забывать, что площадь постройки можно изменить под ваши потребности, т.к. технология деревянного домостроения позволяет это делать.
+										%p Наши архитекторы рады предложить Вам не только тиопвые проекты сооружений, но и индивидуальное проектирование любой сложности, от типового до концептуального, с учетом всех Ваших задач и пожеланий.
+										%p
+											Мы готовы представить не только строительные чертежи, но и
+											%a{href: ""} фотографии
+											реально построенных по ним объектов.
+									.project-list
+										-counter = 0
+										-(1..3).each do
+											.pl-section
+												.next-page
+													%a{href: ""} Дома до 100 м2
+												.pl-container
+													-(1..3).each do
+														-counter += 1
+														%a.pl-item{href: ""}
+															%figure.fit-bg{href: ""}
+																%img{src: "images/pl_0#{counter}.jpg", alt: ""}
+															%figcaption
+																%p
+																	Дом Малла
+																	=counter
+																.params
+																	%em
+																		339,9м
+																		%sup> 2
+																	%em.params-floors 2
+																	%em.params-rooms 6
+													.tac.-m-ib
+														%a.button.transparent-rounded.next{href: ""} еще 56
+												.tac.-d
+													%a.button.transparent-rounded.next{href: ""} еще 56 проектов
+				=Haml::Engine.new(File.read("src/haml/_footer_inner.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_search.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_m_menu.haml")).render

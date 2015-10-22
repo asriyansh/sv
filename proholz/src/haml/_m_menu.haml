@@ -1,0 +1,18 @@
+.m-menu.-m
+	.padded
+		%header.justify
+			.mm-logo
+				%img{src: "images/mm_logo.png", alt: ""}
+			%span.mm-hide
+		.mm-list
+			-["Компания", "Материалы", "Проекты", "Услуги", "Информация", "Контакты"].each_with_index do |i, j|
+				%a{href: "", class: ("active" if j == 0)}= i
+		.mm-contacts
+			%p +7 495 978-85-75
+			%span Перезвоните мне
+			%a{href: "mailto:info@proholz.ru"} info@proholz.ru
+		.mm-search
+			%form{action: ""}
+				.input
+					%input{type: "search"}
+					%span.placeholder например, финский брус

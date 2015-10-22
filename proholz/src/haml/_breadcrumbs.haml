@@ -1,0 +1,27 @@
+%ul.breadcrumbs
+	-structure = ["Proholz", "Материалы", "Бани, гаражи, беседки", "Баня «Ваня»"]
+	-structure.each_with_index do |i, j|
+		%li{class: ("has-nested" if j == 2 or j == 3)}
+			%a{href: ""}
+				%span= i
+			-if j == 2
+				%ul.b-nav
+					%li
+						%span Бани, гаражи, беседки
+					%li
+						%a{href: ""} Дома до 100 м2
+					%li
+						%a{href: ""} Дома от 100 до 250 м2
+					%li
+						%a{href: ""} Дома более 250 м2
+			-elsif j == 3
+				%ul.b-nav
+					%li
+						%span Баня «Ваня»
+					%li
+						%a{href: ""} Дом «Антон»
+					%li
+						%a{href: ""} Гараж «Грильяж»
+					%li
+						%a{href: ""} Беседка «Джульеттка»
+

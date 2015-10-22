@@ -1,0 +1,16 @@
+$minContainerWidth: 990px
+$maxContainerWidth: 1366px
+$linkColor: #ead096
+$linkHoverColor: white
+$bodyColor: white
+$bodyBgColor: transparent
+$bodyFont: 'Avenir Next', Helvetica, Arial, sans-serif
+$defLineHeight: 1.2
+$defFontSize: 14px
+$defFontStyle: normal normal
+$fontPath: '../fonts/'
+$imgPath: '../images/'
+@function img($name)
+	@return $imgPath + $name
+$fonts: (light: 'AvenirNextCyr-Light' 'Avenir Next' normal 300, light-italic: 'AvenirNextCyr-LightItalic' 'Avenir Next' italic 300, regular: 'AvenirNextCyr-Regular' 'Avenir Next' normal 400, regular-italic: 'AvenirNextCyr-Italic' 'Avenir Next' italic 400, medium: 'AvenirNextCyr-Medium' 'Avenir Next' normal 500, medium-italic: 'AvenirNextCyr-MediumItalic' 'Avenir Next' italic 500, demi: 'AvenirNextCyr-Demi' 'Avenir Next' normal 600, demi-italic: 'AvenirNextCyr-DemiItalic' 'Avenir Next' italic 600, ruble: 'ruble_sans' 'Ruble' normal normal)
+@import 'mixins', 'reset', 'base', 'main', '600'

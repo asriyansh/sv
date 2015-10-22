@@ -1,0 +1,429 @@
+!!!
+%html{data: {modules: "inner distribution"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Дистрибьюторы")
+	%body.inner
+		.page
+			.page-bg
+				.pb-image.fit-bg
+					%img{src: "images/index_bg_blurred.jpg", alt: ""}
+				.pb-overlay
+			.page-content
+				.pc-inner
+					=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+					%main
+						.container-fixed.padded
+							=Haml::Engine.new(File.read("src/haml/_breadcrumbs.haml")).render
+							%h1 Дистрибьюторы
+							.distribution
+								.d-item
+									%h4 Официальное Представительство "Oy Honkamajat Finland Ltd." на территории России. Поставка и строительство домов из финского клееного бруса и клееного бревна. Ценные породы дерева.
+								.d-item
+									%h2 Россия
+									.columns-3
+										%div
+											%article.js-ignore
+												%h3 Главный офис в Москве
+												%p Москва, пересечение МКАД и Рублевского шоссе (МКАД 60 км), БЦ Колизей, офис 404
+												%p +7(495) 978-8575 - многоканальный
+												%p +7 (903) 237- 4074 - ежедневно 09:00 - 22:00
+												%p
+													%a{href: "mailto:info@proholz.ru"} info@proholz.ru
+												%p Рабочий день: пн.- пт. 10:00 - 19:00
+										%div
+											%article.js-ignore
+												%h3 Дополнительный офис
+												%p Москва, Рублевское шоссе д.48/1, "ТЦ Рублевский", вход со стороны Рублевского шоссе, офис 306
+												%p +7 (495) 969-6665
+												%p +7 (903) 237-4074 - ежедневно 09:00 - 22:00
+												%p
+													%a{href: "mailto:info@proholz.ru"} info@proholz.ru
+												%p Рабочий день: пн.- пт. 10:00 - 18:00
+										%div
+											%article.js-ignore
+												%h3 Ростов-на-Дону
+												%p Архитектурно-проектная мастерская "Зодчий"
+												%p 344010, Россия, Ростов-на-Дону, ул. Греческого города Волос, 102
+												%p +7 (863) 299-40-84, +7 (863) 250-61-81
+												%p Факс: +7 (863) 266-59-47
+										%div
+											%article.js-ignore
+												%h3 Екатеринбург
+												%p Компания "Абсолютный Дом"
+												%p 620144 г. Екатеринбург ул. Московская 195,  офис 473  Бизнес Центр "МАН"
+												%p +7 (343) 382-19-22
+												%p
+													%a{href: "mailto:info@absolutdom.ru"} info@absolutdom.ru
+												%p Рабочий день: пн.- пт. 10:00 - 18:00
+												%p
+													%a{:href => "http://www.absolutdom.ru"} www.absolutdom.ru
+								.d-item
+									%h2 Европа
+									.columns-3
+										%div
+											%article.js-ignore
+												%h3 Австрия
+												%p EBS Bau- & Projektmanagement Ltd.
+												%p Mr. Erol Dönmez
+												%p Ruckergasse 8/28, 1120 WIEN, AUSTRIA
+												%p Tel: +43 (1) 967 25 20
+												%p Mobile: +43 (0) 699 115 20 244
+												%p Fax: +43 (1) 208 13 79
+										%div
+											%article.js-ignore
+												%h3 Бельгия
+												%p Van Hauwaert Christophe BVBA
+												%p Posterijlaan 49
+												%p 8740 Pittem BELGIUM
+												%p Tel. +32 51 467 621
+												%p Fax +32 51 467 623
+												%p Mobile +32 495 107 619
+										%div
+											%article.js-ignore
+												%h3 Болгария
+												%p Finlandski kashti Ltd
+												%p Sofia-Bistrica 1444
+												%p "St. Stambolov" str. 63
+												%p Tel. 0898731955
+										%div
+											%article.js-ignore
+												%h3 Великобритания
+												%p Finn Log Homes Ltd.
+												%p Humber Court Farm
+												%p Humber
+												%p Leominster
+												%p Herefordshire
+												%p HR6 ONE
+												%p Tel. 01568 679127
+										%div
+											%article.js-ignore
+												%h3 Великобритания
+												%p AIC Log Cabins
+												%p Newcastle Road
+												%p Congleton
+												%p Cheshire
+												%p CW12 4RL
+												%p Tel. 0044 1260 299524
+										%div
+											%article.js-ignore
+												%h3 Германия
+												%p WOKA Ay
+												%p Wolfgang Nemitz
+												%p Savusaunantie 13
+												%p 96460 Rovaniemi
+												%p Finland
+												%p Tel & Fax: +358 16 348 1844
+												%p Mobile: +358 40 538 8539
+										%div
+											%article.js-ignore
+												%h3 Германия
+												%p Horst Lindemann
+												%p Aubeck 4
+												%p 25364 Bokel
+												%p Germany
+												%p Tel/Fax: +49 4127 97 88 929
+												%p Mobile: +49 172 43 33 606
+										%div
+											%article.js-ignore
+												%h3 Германия
+												%p Bauelemente FRIBO
+												%p Viktor Friesen
+												%p Gmümder Str. 28
+												%p 73550 Waldstetten
+												%p Germany
+												%p Tel: +49 7171 1044698
+												%p Fax: +49 7171 8748591
+										%div
+											%article.js-ignore
+												%h3 Германия
+												%p Zimmerei Zimmermann GmbH
+												%p Becker Str. 32
+												%p 01109 Dresden
+												%p Germany
+												%p Tel: +0351 6 56 7390
+												%p Fax: +0351 6 56 7389
+										%div
+											%article.js-ignore
+												%h3 Голландия
+												%p Suomen Log House
+												%p Klaas v Donderen
+												%p E.G weg 8, 9636 HX Zuidbroek, THE NETHERLANDS
+												%p Tel: +31 5 98 45 07 67
+												%p Mobile: +31 653 63 00 07
+												%p Fax: +31 5 98 45 05 16
+										%div
+											%article.js-ignore
+												%h3 Греция
+												%p George Economides Ltd
+												%p Nikoleta Economides
+												%p 7, Nestoros Typa Str.
+												%p 54646 Thessaloniki
+												%p GREECE
+												%p Tel. +30 2310/ 423558, 423568, 423569
+												%p Mob: +30 6947 204579
+												%p Fax: +30 2310 425284
+										%div
+											%article.js-ignore
+												%h3 Израиль
+												%p BATIM YAFIM
+												%p Mr. Avishay Yefet
+												%p Tarmav St 24
+												%p RISHON-LZION
+												%p ISRAEL
+												%p Tel: +972 3 965 2212
+												%p Mobile: +972 50 757 5726
+												%p Fax: +972 3 967 7817
+										%div
+											%article.js-ignore
+												%h3 Ирландия
+												%p Log Homes Direct Ltd.
+												%p 6 Mountain View 
+												%p Lismore 
+												%p County: Waterford, Ireland
+												%p Tel. +353 58 53 917 
+												%p Fax: +353 58 53 923
+										%div
+											%article.js-ignore
+												%h3 Испания
+												%p FUSTAHOGAR
+												%p Finques Cel Obert s.l. 
+												%p C/. Aiguanova, 14 Bjos
+												%p 43204 Reus ( Tarragona )
+												%p Tel-Fax: +34 977 75 21 03
+										%div
+											%article.js-ignore
+												%h3 Италия
+												%p L.D.B. S.r.l.
+												%p Mr. Luigi Di Biase
+												%p Via A. Volta 1/A 67027 Raiano (AQ) ITALY
+												%p Tel: +39 0864 726717
+												%p Fax: +39 0864 721559
+										%div
+											%article.js-ignore
+												%h3 Сербия
+												%p Honkamajat G-dizajn d.o.o. Subotica
+												%p Beogradski put 36
+												%p 24 000 Subotica
+												%p SRBIJA
+												%p Tel: +381 24 534 310
+												%p Fax: +381 24 534 310
+										%div
+											%article.js-ignore
+												%h3 Словакия
+												%p Gabriel Takac - AVIGA
+												%p Karvinska 231
+												%p 735 61 Chotebuz
+												%p Czech Rebublic
+												%p Tel. 00 42 06 04 986 115
+										%div
+											%article.js-ignore
+												%h3 Словения
+												%p MAKI-ing d.o.o.
+												%p Pod Hribom 22
+												%p 1000 Ljubljana
+												%p SLOVENIA
+												%p Tel: +386 40 665 029, + 386 31 681 288
+										%div
+											%article.js-ignore
+												%h3 Хорватия
+												%p G-Dizajn
+												%p Hinka Wuertha 12
+												%p 10 000 Zagreb
+												%p CROATIA
+												%p Tel: 00385 1 383 1109
+												%p Fax: 00385 1 383 1109
+												%p Lea Golubic — 00385 98 391527
+												%p Zeljko Golubic — 00385 98 386392
+										%div
+											%article.js-ignore
+												%h3 Украина
+												%p Finskiy Dom L.L.C.
+												%p 18, Nauky Avenue, ground floor 
+												%p 03039 KIEV
+												%p UKRAINE
+												%p Tel: +38 044 524 35 51, +38 524 35 53,
+												%p +38 524 56 39, 524 56 68 ,524 56 69
+												%p GSM: +38 067 440 29 70
+										%div
+											%article.js-ignore
+												%h3 Украина
+												%p ARBA Ltd
+												%p Vladimir Arabadzhy
+												%p Tel: +38 0692 547 948
+										%div
+											%article.js-ignore
+												%h3 Франция
+												%p BOREALE Sarl
+												%p Agent Général
+												%p BP 83056
+												%p 17031 La Rochelle Cedex 1
+												%p Tel : 05.46.41.27.23
+												%p Ptb : 06.08.09.30.96
+										%div
+											%article.js-ignore
+												%h3 Чехия
+												%p Gabriel Takac - AVIGA
+												%p Karvinska 231
+												%p 735 61 Chotebuz
+												%p Czech Rebublic
+												%p Tel. 00 42 06 04 986 115
+								.d-item
+									%h2 Скандинавские страны и страны Балтии
+									.columns-3
+										%div
+											%article.js-ignore
+												%h3 Дания
+												%p Honkamajat Danmark
+												%p Tom A. Pedersen
+												%p Vandvaerksvej 51 A
+												%p 5500 Middelfart
+												%p DANMARK
+												%p Tel: +45 63 41 08 08
+												%p Mobil: +45 40 35 92 93
+												%p Fax: +45 63 41 09 09
+										%div
+											%article.js-ignore
+												%h3 Дания
+												%p Tako & Co.
+												%p Antero Komi
+												%p Lillevangspark 46
+												%p 3520 Farum
+												%p DANMARK
+												%p Mobil: +45 2329 8788
+										%div
+											%article.js-ignore
+												%h3 Дания
+												%p Mester byg A/S
+												%p Ole Johansen
+												%p Stigbjergvej 15
+												%p 7330 Brande
+												%p DANMARK
+												%p Tel: +45 75 34 55 99
+												%p Mobil: +45 28 94 76 85
+										%div
+											%article.js-ignore
+												%h3 Дания
+												%p Patrik Andersson Bygg i Perstorp AB
+												%p Oderljungavägen 110
+												%p 284 91 Perstorp
+												%p Sverige
+												%p Patrik: +46 (0) 70 56 37335
+												%p Annika: +46 (0) 76 76 80977
+										%div
+											%article.js-ignore
+												%h3 Норвегия
+												%p Ing. Kåre Leiknes Jr
+												%p Trollvikveien 130
+												%p 9300 FINNSNES
+												%p NORGE
+												%p Tel / Fax: +47 77 84 56 64
+												%p Mobile: +47 48 25 00 94
+												%p Fax: +47 77 84 58 74
+										%div
+											%article.js-ignore
+												%h3 Норвегия
+												%p Gisle Stien
+												%p Boks 131
+												%p 9711 LAKSELV
+												%p NORGE
+												%p Tel: +47 78 46 14 24
+												%p Fax: +47 78 46 15 59
+												%p Mobil: +47 950 31 995
+										%div
+											%article.js-ignore
+												%h3 Дания
+												%p Patrik Andersson Bygg i Perstorp AB
+												%p Oderljungavägen 110
+												%p 284 91 Perstorp
+												%p Sverige
+												%p Patrik: +46 (0) 70 56 37335
+												%p Annika: +46 (0) 76 76 80977
+										%div
+											%article.js-ignore
+												%h3 Норвегия
+												%p Ing. Kåre Leiknes Jr
+												%p Trollvikveien 130
+												%p 9300 FINNSNES
+												%p NORGE
+												%p Tel / Fax: +47 77 84 56 64
+												%p Mobile: +47 48 25 00 94
+												%p Fax: +47 77 84 58 74
+										%div
+											%article.js-ignore
+												%h3 Норвегия
+												%p Gisle Stien
+												%p Boks 131
+												%p 9711 LAKSELV
+												%p NORGE
+												%p Tel: +47 78 46 14 24
+												%p Fax: +47 78 46 15 59
+												%p Mobil: +47 950 31 995
+										%div
+											%article.js-ignore
+												%h3 Норвегия
+												%p Torleif Nøstvik
+												%p Myrveien 27
+												%p 1482 Nittedal
+												%p NORGE
+												%p Mobil: +47 92 81 31 51
+												%p Tel: +47 670 749 60
+										%div
+											%article.js-ignore
+												%h3 Финляндия
+												%p Oulu
+												%p Tehdasmyynti / Factory shop
+												%p Pekka Paaso
+												%p Veistämötie 6, FIN-90620 OULU
+												%p Puh: +358 8 563 1100
+												%p Puh: +358 8 563 1130
+												%p Fax: +358 8 563 1110
+										%div
+											%article.js-ignore
+												%h3 Финляндия
+												%p Turku
+												%p Esa Katajamäki
+												%p Vimpankuja 8, FIN-20540 TURKU
+												%p GSM: +358 44 211 4345
+										%div
+											%article.js-ignore
+												%h3 Швеция
+												%p Albert Snickeri HB
+												%p Jonas Jonehög
+												%p Sucka Axels Stuga
+												%p 672 94 ÅRJÄNG
+												%p SVERIGE
+												%p Mobil: +46 (0) 70 980 5941
+										%div
+											%article.js-ignore
+												%h3 Швеция
+												%p Försäljning i Stockholm och Norrland
+												%p Idrottsvägen 24
+												%p 931 45 Skellefteå
+												%p Västerbotten
+												%p SVERIGE
+												%p Staffan Lind, mobil: +46 (0) 730 870 847
+												%p Fax +46 (0) 910 55 932
+										%div
+											%article.js-ignore
+												%h3 Швеция
+												%p Jan-Olovs Bygg
+												%p Olle Davidsson
+												%p Slätåsvägen 16
+												%p 719 40 Garphyttan
+												%p SVERIGE
+												%p Tel:  +46 (0) 19 29 8362
+												%p Tel: +46 (0) 70 396 2910
+										%div
+											%article.js-ignore
+												%h3 Швеция
+												%p Patrik Andersson Bygg i Perstorp AB
+												%p Oderljungavägen 110
+												%p 284 91 Perstorp
+												%p Sverige
+												%p Patrik: +46 (0) 70 56 37335
+												%p Annika: +46 (0) 76 76 80977
+							.next-page
+								%em Далее
+								%a{href: ""} Сертификаты
+				=Haml::Engine.new(File.read("src/haml/_footer_inner.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_search.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_m_menu.haml")).render

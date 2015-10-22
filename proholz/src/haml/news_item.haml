@@ -1,0 +1,31 @@
+!!!
+%html{data: {modules: "inner"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Новый проект")
+	%body.inner
+		.page
+			.page-bg
+				.pb-image.fit-bg
+					%img{src: "images/index_bg_blurred.jpg", alt: ""}
+				.pb-overlay
+			.page-content
+				.pc-inner
+					=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+					%main
+						.container-fixed.padded
+							=Haml::Engine.new(File.read("src/haml/_breadcrumbs.haml")).render
+							%h1{data: {page_type: 'Новость'}} Новый проект в Московской области
+							%article
+								%p Подписан контракт на производство, поставку и монтаж 2-х домокомплектов по типовым проектам "Стина" и "Тильда"производства Oy Honkamajat Finland Ltd. Общая площадь 2-х домовладений - 200м2. Комплектация - MAX. Поставка намечена на середину сентября 2014г. Монтаж будет производиться в д. Власово Одинцовского р-на Московской области. Сроки монтажа домокомплектов - до 30 декабря 2014г.
+								%p На данном объекте также завершено устройство каркасных перегородок и монтаж окон Velux. Работы производятся в рамках монтажа домокомплектов производства Oy Honkamajat Finland Ltd. по индивидуальным проектам Дом, Сауна и Гараж в коттеджном поселке Lake-Side ("Истринская долина", Девелопер проекта - Компания «Вектор Инвестментс»).
+								%p В данный момент объект законсервирован до наступления круглосуточных плюсовых температур, после чего мы планируем завершить монтаж всех кровельных покрытий, водосточных систем и снегозадержания, а также приступить к устройству внутренних инженерных сетей и наружной отделке.
+								%p На представленных фото Вы можете увидеть результат проделанных работ. Объект доступен для просмотра по согласованию с Заказчиками и в сопровождении сотрудников компании ProHolz.
+							.inner-gallery
+								-(1..4).each do |i|
+									%a.gallery-anchor{href: "http://placehold.it/#{Random.rand(3000) + 400}x#{Random.rand(3000) + 400}/#{rand(0xffffff).to_s(16)}/ffffff"}
+										%img{src: "images/n_0#{i}.png", alt: ""}
+							.more-button
+								%a.button.transparent-rounded.next{href: ""} Следующая новость
+				=Haml::Engine.new(File.read("src/haml/_footer_inner.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_search.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_overlay_gallery.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_m_menu.haml")).render

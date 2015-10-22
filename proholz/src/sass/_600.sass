@@ -1,0 +1,452 @@
+$mobileMinWidth: 320px
+$mobileMaxWidth: 600px
+.-m,
+.-m-ib
+	display: none !important
+@media (max-width: $mobileMaxWidth)
+	.padded
+		padding-right: 15px
+		padding-left: 15px
+	.-m-p0
+		padding: 0
+	.-m
+		display: block !important
+	.-m-ib
+		display: inline-block !important
+	.-d
+		display: none !important
+	body
+		min-width: $mobileMinWidth
+		text-size-adjust: none
+	h1
+		font-size: 30px
+		margin-bottom: 20px
+	h2
+		font-size: 21px
+		letter-spacing: 0.2px
+	article
+		line-height: 22px
+		h1
+			margin-bottom: 20px
+		p
+			margin-bottom: 10px
+		ul
+			&.list
+				line-height: 18px !important
+	.container
+		min-width: $mobileMinWidth
+		max-width: none
+	.container-fixed
+		min-width: $mobileMinWidth
+		width: auto
+	.index-pages
+		position: static
+	.ip-item
+		position: static // active added by js
+	.ip-title
+		position: static
+		margin-bottom: 50px
+		br
+			display: none
+	.ip-news
+		position: static
+		width: auto
+		border-top: 1px solid rgba(255, 255, 255, 0.2)
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2)
+		padding-top: 25px
+		padding-bottom: 20px
+		margin-bottom: 60px
+	.ip-slider
+		position: relative
+		top: auto
+		bottom: auto
+		padding-bottom: 20px
+	.ip-container
+		position: static
+		margin-bottom: 20px
+	.ip-slide
+		// position: static
+		bottom: auto
+		&:before
+			display: none
+		figure
+			float: none
+			width: auto
+			margin-right: 0
+			margin-bottom: 40px
+			text-align: center
+			img
+				display: inline-block
+		figcaption
+			overflow: visible
+	.ip-prev
+		top: auto
+		bottom: 0
+		height: 60px
+		left: -15px
+		&:before
+			width: 7px
+			height: 12px
+			+sprite(64 162)
+			right: auto
+			left: 15px
+	.ip-next
+		top: auto
+		bottom: 0
+		height: 60px
+		right: -15px
+		&:before
+			width: 7px
+			height: 12px
+			+sprite(72 162)
+			right: 15px
+			left: auto
+	.ipn-tabs
+		a
+			transition: none
+	.ip-links
+		+justify
+		a
+			margin-right: 0
+			font-size: 14px
+	.ipn-nav
+		text-align: center
+	.ip-nav
+		position: static
+	.footer-index
+		position: static
+		padding-top: 30px
+		padding-bottom: 25px
+	.footer-inner
+		padding-top: 24px
+		padding-bottom: 6px
+		a
+			text-decoration: underline
+	.f-copyright
+		padding-left: 32px
+		max-width: 200px
+		p
+			line-height: 20px
+			&:not(:last-child)
+				margin-bottom: 0
+	.fc-address
+		line-height: 20px
+		&:before
+			position: absolute
+			left: 0
+	.breadcrumbs
+		margin-bottom: 20px
+		> li
+			&.has-nested
+				> a
+					span
+						border-bottom-style: solid
+	.b-nav
+		display: none
+	main
+		padding: 45px 0
+		h1
+			margin-bottom: 20px
+	.next-page
+		margin-bottom: 0
+	.info-block
+		// padding-top: 20px
+		// padding-bottom: 20px
+		a
+			text-decoration: underline
+		+ .next-page
+			margin-top: 10px
+	.columns-2
+		> *
+			width: 100%
+	.columns-3
+		> *
+			width: 100%
+			padding-right: 0
+	.co-step
+		padding-bottom: 20px
+		.columns-3
+			padding-left: 0
+			margin-bottom: -30px
+			> *
+				margin-bottom: 30px
+		&:first-of-type
+			padding-top: 30px
+	.about-advantages
+		padding-top: 40px
+		.columns-2
+			margin-bottom: -30px
+		h2
+			margin-bottom: 30px
+	.aa-item
+		margin-bottom: 30px
+		&:before
+			top: 1px
+	.f-contacts
+		width: auto
+		float: none
+	.ce-item
+		width: 100%
+		&:not(:nth-child(4n))
+			margin-right: 0
+	.c-item
+		padding-right: 0
+		margin-bottom: 30px
+		h2
+			font-size: 24px
+			margin-bottom: 10px
+	.c-columns
+		margin-bottom: 0
+		> *
+			width: 100%
+	.c-message
+		padding-left: 0
+		p
+			display: inline
+		.button
+			margin-top: 8px
+			vertical-align: baseline
+	.c-map
+		height: 300px
+		margin-right: -15px
+		margin-left: -15px
+		margin-bottom: -50px
+	.distribution
+		h4
+			font-size: 16px
+			line-height: 1.5
+		h2
+			margin-bottom: 10px
+	.d-item
+		padding-bottom: 20px
+		margin-bottom: 20px
+		.columns-3
+			margin-bottom: -15px
+			> div,
+			> a
+				margin-bottom: 15px
+			.p-item
+				margin-bottom: 35px
+	.flag
+		&:before
+			margin-right: 2px
+	.m-list
+		margin-bottom: -30px
+	.ml-item
+		width: 100%
+		margin-bottom: 30px
+		&:not(:nth-child(4n))
+			margin-right: 0
+		figure
+			height: auto
+			line-height: $defLineHeight
+			margin-bottom: 9px
+	.mi-figure
+		margin-bottom: 5px
+		figure
+			padding-top: 0
+			&:before
+				display: none
+	.mif-note
+		position: static
+		width: auto
+		margin-bottom: 35px
+		strong
+			margin-bottom: 5px
+		&:before
+			margin-bottom: 10px
+	.mif-2
+		transform: translateX(0)
+	.nr-item
+		h3
+			margin-bottom: 10px
+	.news-tabs
+		float: left
+		margin-bottom: 15px
+		+ h1
+			clear: left
+			margin-top: 5px
+		li,
+		a
+			padding: 0 15px
+	.news
+		.d-item
+			padding-top: 15px
+			.columns-3
+				margin-bottom: -30px
+			.nr-item
+				margin-bottom: 30px
+	.nr-item
+		header
+			margin-bottom: 15px
+	.inner-gallery
+		> *
+			width: 50%
+			padding-right: 5%
+			margin-bottom: 5%
+	.p-manufacturers
+		figure
+			height: auto
+			text-align: center
+	.p-item
+		article
+			font-size: 14px
+			line-height: 22px
+		figure
+			margin-bottom: 10px
+			+ article
+				margin-top: 0
+	.partners
+		margin-bottom: -50px
+		.d-item
+			margin-bottom: 40px
+		.p-mats
+			padding-bottom: 0
+	.inline-gallery
+		.gallery-anchor
+			float: none
+			margin-right: 0
+			margin-bottom: 30px
+			display: block
+	.white-bg
+		figure
+			text-align: center
+			font-size: 0
+			&:not(:last-child)
+				margin-bottom: 30px
+			img
+				display: inline-block
+	.p-content
+		float: none
+		width: auto
+		margin-bottom: 0
+		margin-left: -15px
+		margin-right: -15px
+		padding-top: 45px
+		figure
+			margin-bottom: 10px
+	.p-info
+		float: none
+		width: auto
+		padding-top: 10px
+		.button
+			margin-top: 5px
+	.pf-tabs
+		white-space: nowrap
+		overflow: hidden
+		max-width: 100%
+		a
+			padding-right: 13px
+			padding-left: 13px
+	.pi-icon
+		margin-right: auto
+		margin-left: auto
+		margin-top: 20px
+	.pi-block
+		+justify
+		padding: 0 20px
+	.project
+		margin-bottom: 30px
+		padding-bottom: 25px
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3)
+	.mp-prev
+		padding-left: 0
+	.mp-next
+		padding-right: 0
+		figcaption
+			float: right
+	.mp-prev,
+	.mp-next
+		top: 90px
+		&:before
+			display: none
+		figure
+			+size(100 60)
+	.more-projects
+		figcaption
+			white-space: nowrap
+			font-size: 14px
+		.next-page
+			position: relative
+			top: -125px
+			margin: 0
+			padding-top: 110px
+	.pf-link
+		padding: 10px 0
+		font-size: 16px
+		&:before
+			+size(23 23)
+			+sprite(0 131)
+		span
+			margin-bottom: 0
+	.pg-nav
+		width: auto
+		float: none
+		margin-left: 0
+		margin-bottom: 30px
+	.pg-content
+		margin-right: 0
+	.pg-image
+		height: 250px
+	.pl-container
+		overflow-x: auto
+		white-space: nowrap
+		margin-right: -15px
+		margin-left: -15px
+		padding: 0 15px
+		.button
+			margin: 69px 0 0 25px
+	.pl-item
+		width: 80%
+		&:last-child
+			margin-right: 0
+	.pls-tabs
+		white-space: nowrap
+		overflow: hidden
+		max-width: 100%
+		li
+			padding-right: 13px
+			padding-left: 13px
+	.pl-sort
+		p
+			margin-right: 0
+			margin-bottom: 15px
+	.overlay
+		min-width: $mobileMinWidth
+	.oo-container
+		width: 100%
+		box-sizing: border-box
+		padding: 0 20px
+		margin-top: 20px
+	.oo-progress
+		span
+			padding: 0 35px
+	.oo-title
+		font-size: 28px
+	.oos-1
+		img
+			max-width: 100%
+	.oos-2
+		width: 100%
+	.oo-hide
+		top: 20px
+	.oos-3
+		width: 100%
+	.ood-container
+		width: 100%
+		box-sizing: border-box
+		padding: 0 20px
+	.ood-hide
+		top: 20px
+	.overlay-gallery
+		padding-right: 0
+		padding-left: 0
+	.gallery-image
+		> div
+			width: 50%
+			span
+				background: transparent !important
+	.og-hide
+		top: 20px
+	.header
+		padding-top: 30px

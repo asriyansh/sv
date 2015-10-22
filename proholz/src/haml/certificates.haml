@@ -1,0 +1,27 @@
+!!!
+%html{data: {modules: "inner"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Сертификаты")
+	%body.inner
+		.page
+			.page-bg
+				.pb-image.fit-bg
+					%img{src: "images/index_bg_blurred.jpg", alt: ""}
+				.pb-overlay
+			.page-content
+				.pc-inner
+					=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+					%main
+						.container-fixed.padded
+							=Haml::Engine.new(File.read("src/haml/_breadcrumbs.haml")).render
+							%h1 Сертификаты
+							.certificates
+								-(0..11).each do |i|
+									%a.ce-item.gallery-anchor{href: i == 0 ? "http://youtu.be/vsTrAfJFLXI" : "http://placehold.it/#{Random.rand(2000) + 400}x#{Random.rand(2000) + 400}/#{rand(0x111111 + 0xeeeeee).to_s(16)}/ffffff.jpg"}
+										%img{src: "images/ce_#{i.to_s.rjust(2, '0')}.jpg", alt: ""}
+							.next-page
+								%em Далее
+								%a{href: ""} Производство
+				=Haml::Engine.new(File.read("src/haml/_footer_inner.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_search.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_overlay_gallery.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_m_menu.haml")).render

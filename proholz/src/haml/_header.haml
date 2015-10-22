@@ -1,0 +1,26 @@
+%header.header
+	.container.padded.clearfix
+		%a.h-logo{href: ""}
+			%img{src: "images/logo.png", alt: "", width: 191, height: 26}
+			%p Официальный представитель<br>OY HONKAMAJAT FINLAND в России
+		.h-phone.-d
+			%p +7 495 978-85-75
+			%span.hp-anchor Перезвоните мне
+			.hp-callback
+				%form.validate{action: ""}
+					.input
+						%input{type: "text", required: true}
+						%span.placeholder Ваше имя
+					.input
+						%input{type: "tel", required: true}
+						%span.placeholder Ваш телефон
+					%button.button.transparent{href: ""} Заказать обратный звонок
+		%nav.h-nav.-d
+			%ul
+				-["Компания", "Материалы", "Проекты", "Услуги", "Информация", "Контакты", nil].each_with_index do |i, j|
+					%li
+						-if i.nil?
+							%span.h-search
+						-else
+							%a{href: "", class: ("active" if j == 0)}= i
+		%span.h-menu-anchor.-m

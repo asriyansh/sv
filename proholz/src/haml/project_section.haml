@@ -1,0 +1,80 @@
+!!!
+%html{data: {modules: "inner project-section"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Дома более 250 м2")
+	%body.inner
+		.page
+			.page-bg
+				.pb-image.fit-bg
+					%img{src: "images/index_bg_blurred.jpg", alt: ""}
+				.pb-overlay
+			.page-content
+				.pc-inner
+					=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+					%main
+						.container-fixed.padded
+							=Haml::Engine.new(File.read("src/haml/_breadcrumbs.haml")).render
+							%h1 Дома более 250 м2
+							.clearfix
+								%aside.pg-nav
+									.pgn-inner
+										%h2 Фильтр
+										.pgn-filter
+											%p Количество этажей
+											-(1..3).each do |i|
+												%label.checkbox-label
+													%input.styled-checkbox{type: "checkbox"}
+													.checkbox
+													%span
+														=i.to_s + " этаж" + (i > 1 ? "a" : "")
+											%p Количество комнат
+											.slider-container-wrapper
+												%input.filter-rooms{type: "hidden", value: "1, 4"}
+											.slider-caption
+												от
+												%span.fr-from 1
+												до
+												%span.fr-to 4
+												комнат
+											%p Площадь
+											.slider-container-wrapper
+												%input.filter-area{type: "hidden", value: "250, 350"}
+											.slider-caption
+												от
+												%span.fa-from 250
+												до
+												%span.fa-to 350
+												м
+												%sup> 2
+											.tac
+												%button.button.transparent.thin Применить
+												%span.filter-reset
+													%span Сбросить фильтр
+								%section.pg-content
+									.project-list-section
+										.pl-section
+											.pl-sort
+												%p Сортировать
+												.pls-tabs
+													-["по площади", "по этажности", "по количеству этажей"].each do |i|
+														%li{href: ""}= i
+											.pl-container
+												-(1..9).each do |i|
+													%a.pl-item{href: ""}
+														%figure.fit-bg{href: ""}
+															%img{src: "images/pl_0#{i}.jpg", alt: ""}
+														%figcaption
+															%p
+																Дом Наталья
+															.params
+																%em
+																	339,9м
+																	%sup> 2
+																%em.params-floors 2
+																%em.params-rooms 6
+												.tac.-m-ib
+													%a.button.transparent-rounded.next{href: ""} еще 34
+											.tac.-d
+												%a.button.transparent-rounded.next{href: ""} еще 34 проекта
+				=Haml::Engine.new(File.read("src/haml/_footer_inner.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_search.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_m_menu.haml")).render

@@ -1,0 +1,59 @@
+!!!
+%html{data: {modules: "inner partners"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Партнеры")
+	%body.inner
+		.page
+			.page-bg
+				.pb-image.fit-bg
+					%img{src: "images/index_bg_blurred.jpg", alt: ""}
+				.pb-overlay
+			.page-content
+				.pc-inner
+					=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+					%main
+						.container-fixed.padded
+							=Haml::Engine.new(File.read("src/haml/_breadcrumbs.haml")).render
+							%h1 Партнеры
+							.partners
+								.d-item.p-manufacturers
+									.columns-3
+										-["Oy Honkamajat Finland Ltd. - производство домокомплектов из высококачественного клееного бруса. Дом, производства компании Хонкамайят – это больше, чем просто деревянный дом. Это осознанное вложение в семью, свободу проживания, расслабление, отдых и друзей!", "Sorvi-Pojat Oy- это основанное в 1970 году финское семейное предприятие. Компания изгототовляет деревянные токарные элементы, колонны, а также поручни и перила.", "Наш партнер в Филяндии компания Torgex Oy. Компания специализируется на продаже недвижимости в Финляндии.", "Финская строительная компания Visilla Oy. Наш партнер в Финляндии. Компания занимается строительством домов в Финляндии.", "Компания Vesta Systems - это реализация солнцезащитных систем высочайшего качества: маркизы, стеклянные террасы, зимние сады, тентовые крыши.", "Компании Терморос Инженеринг"].each_with_index do |i, j|
+											.p-item
+												%figure
+													%img{src: "images/p_0#{j + 1}.png", alt: ""}
+												%article.js-ignore= i
+								.d-item.p-mats
+									%header
+										%h2 Cтроительные материалы
+										%article Мы используем только высококачественые строительные материалы<br>следующих производителей.
+									.columns-3
+										%div
+											-["Финская строительная компания Visilla Oy. Наш партнер в Финляндии. Компания занимается строительством домов в Финляндии.", "Высококачественная цементно-песчанная черепица Braas. С этой кровлей Ваш дом будет выглядеть солидно и монументально."].each_with_index do |i, j|
+												.p-item
+													-if j == 0
+														%h3 Кровельные системы
+													%figure
+														%img{src: "images/pm_0#{j + 1}.png", alt: ""}
+													%article.js-ignore= i
+										%div
+											-["Финские деревянные окна Profin. Широкое разнообразие моделей и аксессуаров к ним позволит подобрать максимально подходящие вам оконные блоки.", "Надежные мансардные оконные блоки от компании с многолетней историей.", "Мансардные окна и лестницы."].each_with_index do |i, j|
+												.p-item
+													-if j == 0
+														%h3 Окна
+													%figure
+														%img{src: "images/pm_0#{j + 3}.png", alt: ""}
+													%article.js-ignore= i
+										%div
+											-["Мы используем лакокрасочные материалы фирмы Dulux. Материалы этой компании зарекомендовали себя высочайшим качеством.", "Грунт-антисептик Cuprinol - один из лучших материалов для защиты дома из бруса."].each_with_index do |i, j|
+												.p-item
+													-if j == 0
+														%h3 Краски и антисептики
+													%figure
+														%img{src: "images/pm_0#{j + 6}.png", alt: ""}
+													%article.js-ignore= i
+							.next-page
+								%em Далее
+								%a{href: ""} Наши дистрибьюторы
+				=Haml::Engine.new(File.read("src/haml/_footer_inner.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_search.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_m_menu.haml")).render

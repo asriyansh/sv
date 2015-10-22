@@ -1,0 +1,13 @@
+{
+  "name": "sv-new",
+  "version": "1.0.0",
+  "dependencies": {
+    "grunt-cli": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-haml": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-newer": "latest",
+    "grunt-regex-replace": "latest"
+  }
+}

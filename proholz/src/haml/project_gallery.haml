@@ -1,0 +1,39 @@
+!!!
+%html{data: {modules: "inner"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Галерея готовых проектов")
+	%body.inner.project-gallery
+		.page
+			.page-bg
+				.pb-image.fit-bg
+					%img{src: "images/index_bg_blurred.jpg", alt: ""}
+				.pb-overlay
+			.page-content
+				.pc-inner
+					=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+					%main
+						.container-fixed.padded
+							=Haml::Engine.new(File.read("src/haml/_breadcrumbs.haml")).render
+							%h1 Галерея готовых проектов
+							.project-gallery.clearfix
+								%aside.pg-nav
+									.pgn-inner
+										%h2 Проекты
+										%ul
+											-["Дома до 100 м2", "Дома от 100 до 250 м2", "Дома более 250 м2", "Бани, гаражи, беседки", "Скандинавская cерия", "Коллекция Optima"].each_with_index do |i, j|
+												%li{class: ("active" if j == 0)}
+													%span= i
+								%section.pg-content
+									.pg-image.gallery-container.valign
+										.gallery-image
+									.pg-slider
+										%span.pg-prev.gallery-prev
+										%span.pg-next.gallery-next
+										.pg-container
+											.pg-scrollable
+												.pg-reel
+													-(1..10).each do |i|
+														%a.pg-slide.gallery-anchor.fit-bg{href: "http://placehold.it/#{Random.rand(3000) + 400}x#{Random.rand(3000) + 400}/#{rand(0x111111 + 0xeeeeee).to_s(16)}/ffffff.jpg"}
+															%img{src: "images/gal_#{i.to_s.rjust(2, '0')}.jpg", alt: ""}
+				=Haml::Engine.new(File.read("src/haml/_footer_inner.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_search.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_m_menu.haml")).render

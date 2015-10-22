@@ -1,0 +1,47 @@
+%footer.footer-inner
+	.container.padded.clearfix
+		.f-contacts
+			%p.f-copy © PROHOLZ, 2002–2014
+			%p
+				+7 495 978-85-75 — многоканальный
+				%br
+				Электронная почта —
+				%a{href: "mailto:info@proholz.ru"} info@proholz.ru
+			%p
+				Москва, Рублевское шоссе, БЦ&nbsp;"Колизей", офис&nbsp;404
+				%br
+				%a{href: ""} Контактная информация
+			%p.f-worktime Работаем по будням с 10:00 до 19:00
+			.f-studio
+				%a.f-link{href: "http://studio-v.ru", target: "_blank"} Создание сайта
+				%a.f-logo{href: "http://studio-v.ru", target: "_blank"}
+		.f-columns.columns-3.-d
+			.f-1
+				%a{href: ""}
+					%h3 О компании
+				%ul
+					-["Дистрибьюторы", "Сертификаты", "Новости", "Производство", "События"].each do |i|
+						%li
+							%a{href: ""}= i
+				%a{href: ""}
+					%h3 Информация
+			.f-2
+				%a{href: ""}
+					%h3 Проекты
+				%ul
+					-["Дома", "Бани, гаражи, беседки", "Скандинавская коллекция", "Коллекция Optima"].each do |i|
+						%li
+							%a{href: ""}= i
+				%a{href: ""}
+					%h3 Материалы
+				%ul
+					-["Финские", "Российские"].each do |i|
+						%li
+							%a{href: ""}= i
+			.f-3
+				%a{href: ""}
+					%h3 Услуги
+				%ul
+					-["Проектирование", "Строительство", "Доставка", "Таможенное оформление", "Комплектация доставки", "Сервисное обслуживание"].each do |i|
+						%li
+							%a{href: ""}= i

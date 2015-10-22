@@ -1,0 +1,56 @@
+!!!
+%html{data: {modules: "inner news"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Новости")
+	%body.inner
+		.page
+			.page-bg
+				.pb-image.fit-bg
+					%img{src: "images/index_bg_blurred.jpg", alt: ""}
+				.pb-overlay
+			.page-content
+				.pc-inner
+					=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+					%main
+						.container-fixed.padded
+							=Haml::Engine.new(File.read("src/haml/_breadcrumbs.haml")).render
+							%ul.news-tabs
+								-["Все сразу", "Новости", "Проекты"].each do |i|
+									%li= i
+							%h1 Новости
+							.news
+								.d-item
+									.columns-3
+										%a.nr-item{href: ""}
+											%header{data: {event_type: "Новость"}} 30.12.2014
+											%h3 С Новым годом и Рождеством!
+											%article Благодарим, что Вы были с нами в уходящем году и поздравляем Вас с наступающим Рождеством и Новым годом!
+										%a.nr-item{href: ""}
+											%header{data: {event_type: "Проекты"}} 07.12.2014
+											%h3 Новые проекты в Московской области и регионах
+											%article Подписан контракт на поставку и монтаж домокомплекта производства Oy Honkamajat Finland Ltd. по индивидуальному проекту.
+										%a.nr-item{href: ""}
+											%header{data: {event_type: "Новость"}} 29.11.2014
+											%h3 Компания Oy Honkamajat Finland Ltd заключила дилерские договора
+											%article Компания Oy Honkamajat Finland Ltd заключила дилерские договора в городах Ижевск, Казань, Сургут, Тюмень и Симферополь.
+								.d-item
+									.columns-3
+										%a.nr-item{href: ""}
+											%header{data: {event_type: "Проекты"}} 04.11.2014
+											%h3 Компания ProHolz — текущие работы
+											%article Завершается монтаж "теплого контура" по проектам "Стина" и "Тильда" производства Oy Honkamajat Finland Ltd.  в д. Власово Одинцовского р-на Московской области.
+										%a.nr-item{href: ""}
+											%header{data: {event_type: "Новость"}} 01.11.2014
+											%h3 Результаты Выставки «Красивые деревянные дома»
+											%article
+												Подписаны 4 контракта на архитектурное проектирование и разработку рабочей документации для строений общей площадью 1 820м
+												%sup> 2
+												\.
+										%a.nr-item{href: ""}
+											%header{data: {event_type: "Проекты"}} 30.09.2014
+											%h3 Завершен монтаж натуральной керамической черепицы для деревянного дома в поселке "Витро Кантри"
+											%article Завершается монтаж стенового комплекта производства Oy Honkamajat Finland Ltd. по проекту "Стина" в д. Власово Одинцовского р-на Московской области.
+							.more-button
+								%button.button.transparent-rounded#news-load-more{href: ""} Загрузить еще
+				=Haml::Engine.new(File.read("src/haml/_footer_inner.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_search.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_m_menu.haml")).render

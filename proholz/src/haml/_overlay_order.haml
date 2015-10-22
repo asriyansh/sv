@@ -1,0 +1,57 @@
+.overlay.overlay-order
+	%span.oo-hide
+	.oo-container
+		.oo-title Заказать проект
+		.oo-progress
+			.oop-lower
+				-["Материалы", "Контактная информация", "Дополнительно"].each_with_index do |i, j|
+					%span= i
+			.oop-higher
+				-["Материалы", "Контактная информация", "Дополнительно"].each_with_index do |i, j|
+					%span= i
+		%form{action: ""}
+			.oo-steps
+				.oos-1
+					%img{src: "images/order_image.jpg", alt: ""}
+					%h1 Дом Валенсия
+					.params
+						%em
+							339,9м
+							%sup> 2
+						%em.params-floors 2
+						%em.params-rooms 6
+					.oo-mats
+						%p Материал дома
+						%select.custom-select
+							%option{value: "1"} Финский брус
+							%option{value: "2"} Российский брус
+							%option{value: "3"} Финский брус
+							%option{value: "4"} Российский брус
+						%span.button.transparent-rounded.next.submit-step-1{href: ""} Следующий шаг
+				.oos-2.validate#order-step-2
+					.input
+						%input{type: "text", required: true}
+						%span.placeholder Ваше имя
+					.input
+						%input{type: "tel"}
+						%span.placeholder Ваш телефон
+					.input
+						%input{type: "email", required: true}
+						%span.placeholder Ваш e-mail
+					%span.button.transparent-rounded.next.submit-step-2{href: ""} Следующий шаг
+				.oos-3.validate#order-step-3
+					.input
+						%textarea{required: true}
+						%span.placeholder Пожелания
+					.oo-file
+						%p Прикрепить файл
+						%input.file-input{type: "file"}
+						.oof-container.file-anchor
+							%span.file-name
+					%span.button.yellow.submit-step-3{href: ""} Заказать этот проект
+.overlay.overlay-order-done.valign
+	%span.ood-hide
+	.ood-container
+		.oo-title Заявка на проект оформлена
+		%p Вся информация была отправлена вам на электронную почту.
+		%p Скоро мы свяжемся с вами по указанным контактным данным.

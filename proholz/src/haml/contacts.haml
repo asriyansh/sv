@@ -1,0 +1,47 @@
+!!!
+%html{data: {modules: "inner map"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Контакты")
+	%body.inner
+		.page
+			.page-bg
+				.pb-image.fit-bg
+					%img{src: "images/index_bg_blurred.jpg", alt: ""}
+				.pb-overlay
+			.page-content
+				.pc-inner
+					=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+					%main
+						.container-fixed.padded
+							=Haml::Engine.new(File.read("src/haml/_breadcrumbs.haml")).render
+							%h1 Контакты
+							.contacts
+								.c-columns
+									.c-item
+										%img{src: "images/contacts.jpg", alt: ""}
+									.c-item
+										%h2 Адрес
+										%p
+											%strong Москва
+										%p
+											пересечение 60км МКАД и&nbsp;Рублевского шоссе, БЦ&nbsp;«Колизей», офис&nbsp;404
+									.c-item
+										%h2 Телефон
+										%p
+											%strong +7 495 978-85-75
+										%p многоканальный
+										%br
+										%p
+											%strong +7 903 237-40-74
+										%p мобильный, ежедневно с 9 до 22
+								.c-message
+									%p
+										Вы можете написать нам на
+										%a{href: "mailto:info@proholz.ru"}info@proholz.ru
+										или
+									%button.button.transparent.contacts-message-anchor Отправить сообщение
+								.c-map
+				=Haml::Engine.new(File.read("src/haml/_footer_inner.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_search.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_overlay_contact.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_m_menu.haml")).render
+

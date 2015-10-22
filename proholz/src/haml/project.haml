@@ -1,0 +1,85 @@
+!!!
+%html{data: {modules: "inner project"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Дом Валенсия")
+	%body.inner
+		.page
+			.page-bg
+				.pb-image.fit-bg
+					%img{src: "images/index_bg_blurred.jpg", alt: ""}
+				.pb-overlay
+			.page-content
+				.pc-inner
+					=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+					%main
+						.container-fixed.padded
+							=Haml::Engine.new(File.read("src/haml/_breadcrumbs.haml")).render
+							%h1 Дом Валенсия
+							.project.clearfix
+								%section.p-content
+									.pc-container.sv-tab#pc-1
+										%article
+											-(1..5).each do |i|
+												%figure
+													%img{src: "images/prj_0#{i}.jpg", alt: ""}
+									.pc-container.sv-tab#pc-2
+										%article
+											-(6..8).each do |i|
+												%figure
+													%img{src: "images/prj_0#{i}.jpg", alt: ""}
+													%em
+														План
+														-case i
+														-when 6
+															1
+														-when 7
+															2
+														-else
+															цокольного
+														этажа
+									.pc-container.sv-tab#pc-3
+										%article
+											%p Комплектация.
+								%aside.p-info
+									%a.pf-link.-m{href: ""}
+										%span Фото готовых проектов
+									.pi-icon
+									.pi-block
+										.pi-half
+											%span Материал
+											%p Финский брус
+											%span Общая площадь
+											%p 135 м<small><sup>2</sup></small>
+										.pi-half
+											%span.-d Количество этажей
+											%span.-m Этажей
+											%p 2
+											%span.-d Количество комнат
+											%span.-m Комнат
+											%p 5
+										%button.button.yellow.order-button Заказать этот проект
+									%h3 Стоимость
+									%article Мы ценим индивидуальный подход к каждому клиенту, поэтому стоимость проекта расчитывается индивидуально.
+									%h3 Доставка
+									%article Приобретенный опыт и наработки позволяют компании ProHolz предлагать своим клиентам самые оптимальные варианты по доставке домокомплектов из Финляндии.
+							.more-projects.clearfix
+								%a.mp-prev{href: ""}
+									%figure.fit-bg
+										%img{src: "images/prj_98.jpg", alt: ""}
+									%figcaption Дом Толедо
+								%a.mp-next{href: ""}
+									%figure.fit-bg
+										%img{src: "images/prj_99.jpg", alt: ""}
+									%figcaption Дом Марсель
+								.next-page
+									%em Другие проекты
+									%a{href: ""} Дома от 100 до 250 м2
+				=Haml::Engine.new(File.read("src/haml/_footer_inner.haml")).render
+			.project-filter
+				%a.pf-link.-d{href: ""}
+					%span Фотографии<br>готовых проектов
+				.pf-tabs
+					-["Фасады", "Планировки", "Комплектация"].each_with_index do |i, j|
+						%a{href: "#pc-#{j + 1}"}= i
+			=Haml::Engine.new(File.read("src/haml/_overlay_order.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_search.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_m_menu.haml")).render
