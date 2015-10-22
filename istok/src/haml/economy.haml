@@ -1,0 +1,111 @@
+!!!
+%html{data: {modules: "economy"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Istokskiy")
+	%body.inner
+		.page-wrapper
+			%main
+				=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+				.content
+					.container.padded.clearfix
+						.economy-slider
+							%header
+								%aside.ec-prev
+									%p.eq-0 Infrastructure
+									%p.eq-1 Investments
+									%p.eq-2 Workplaces
+								%aside.ec-next
+									%p.eq-0 Workplaces
+									%p.eq-1 Infrastructure
+									%p.eq-2 Investments
+								.ec-title
+									%h2.eq-0 Total investments value 130 bil. R.
+									%h2.eq-1 Workplaces &mdash; 31 310
+									%h2.eq-2 Infrastructure
+							.ec-container
+								.ec-reel
+									%section
+										.ec-text
+											%article
+												%p Creating a new city with a population of more than 130 000 sets a challenge to the developer to predict and solve any human traffic problem which can be faced in future. MonArch-Development are going to create brand new public traffic network, includes trams, buses, trolleys and 5 new transport hubs. Those routes are going to connect Istoksky with Yekaterinburg downtown.
+										%figure.ec-figure
+											%img.ecf-bg{src: "images/figure_bg.png", alt: ""}
+											%img.ecf-image{src: "images/figure_01.png", alt: ""}
+											.ecf-notes
+												.ecfn-1
+													%p 9 bil. rub.
+													%span Design and preoperational
+													%mark
+												.ecfn-2
+													%p 16 bil. rub.
+													%span OPEX
+													%mark
+												.ecfn-3
+													%p 21 bil. rub.
+													%span Social Infrastructure
+													%mark
+												.ecfn-4
+													%p 26 bil. rub.
+													%span MEP
+													%mark
+												.ecfn-5
+													%p 189 bil. rub.
+													%span Construction
+													%mark
+									%section
+										.ec-text
+											%article
+												%p Creating a new city with a population of more than 130 000 sets a challenge to the developer to predict and solve any human traffic problem which can be faced in future. MonArch-Development are going to create brand new public traffic network, includes trams, buses, trolleys and 5 new transport hubs. Those routes are going to connect Istoksky with Yekaterinburg downtown.
+										%figure.ec-figure
+											%img.ecf-bg{src: "images/figure_bg.png", alt: ""}
+											%img.ecf-image{src: "images/figure_02.png", alt: ""}
+											.ecf-notes
+												.ecfn-10
+													%p 1 150
+													%span Existing
+													%mark
+												.ecfn-11
+													%p 3 100
+													%span Retail
+													%mark
+												.ecfn-12
+													%p 4250
+													%span Industrial and service
+													%mark
+												.ecfn-13
+													%p 5 500
+													%span Offices
+													%mark
+												.ecfn-14
+													%p 17 810
+													%span Social facilities
+													%mark
+									%section
+										%ul.ec-tabs
+											-["Culture", "Safety", "Education", "Services", "Healthcare"].each_with_index do |i, j|
+												%li{data: {type: j}}= i
+										.ec-tab
+											.ec-item.eci-0{data: {type: 4}}
+												%p Care centers –12 objects for more than 500 persons
+											.ec-item.eci-3{data: {type: 2}}
+												%p 40 day-cares
+											.ec-item.eci-5{data: {type: 3}}
+												%p Laundries and dry-cleaners to clean up 7 000 kg. cloths per day
+											.ec-item.eci-7{data: {type: 2}}
+												%p 13 colleges
+											.ec-item.eci-10{data: {type: 2}}
+												%p 5 kindergartens
+											.ec-item.eci-8{data: {type: 2}}
+												%p 65 000 m2 of playgrounds
+											.ec-item.eci-1{data: {type: 4}}
+												%p 1 600 beds, 14 medical cars and OPC’s to attend 8 000 patients per day
+											.ec-item.eci-6{data: {type: 1}}
+												%p 5 fire stations for 34 fire trucks
+											.ec-item.eci-11{data: {type: 2}}
+												%p 24 schools
+											.ec-item.eci-4{data: {type: 2}}
+												%p 4 swimming pools
+											.ec-item.eci-2{data: {type: 0}}
+												%p Cinemas for 1 500 persons gross
+											.ec-item.eci-9{data: {type: 0}}
+												%p 4 Theaters for 500  viewers
+			=Haml::Engine.new(File.read("src/haml/_footer.haml")).render

@@ -1,0 +1,32 @@
+!!!
+%html{data: {modules: ""}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Istokskiy")
+	%body.inner
+		.page-wrapper
+			%main
+				=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+				.content
+					.container.padded.clearfix
+						%header.inner-header.justify-middle
+							%h2 News
+							.tabs
+								-["All years", "By month"].each_with_index do |i, j|
+									%a{href: "", class: ("active" if j == 0)}= i
+							.news-months
+								-["All month", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"].each_with_index do |i, j|
+									%a{href: "", class: ("active" if j == 0)}= i
+						.news-list
+							-[["Nikkei sags to 4-week low as oil prices tumble; Abe win offers little respite", "Dec 12, 2014"], ["First Fire Used 350000 Years Ago", "Dec 11, 2014"], ["Study Shows: Currently 270000 Tons of Synthetic Material Floating in the Oceans", "Dec 3, 2014"], ["Astronomers locate pluto sized object in teenage galaxy", "Dec 7, 2014"], ["NASA Has Revealed Ancient Lake Evidence On Mars And New Images Of Saturn", "Sep 6, 2014"]].each_with_index do |i, j|
+								%a.news-item{href: ""}
+									%figure
+										%img{src: "images/news_0#{j + 1}.png", alt: ""}
+									%figcaption
+										%p= i[0]
+										%span= i[1]
+						.pagination
+							-(1..8).each do |i|
+								-if i == 2
+									%span= i
+								-else
+									%a{href: ""}= i
+			=Haml::Engine.new(File.read("src/haml/_footer_inner.haml")).render

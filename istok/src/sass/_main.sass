@@ -1,0 +1,2544 @@
+body
+	&.index
+		.page-wrapper
+			min-height: 600px
+		.h-submenu
+			display: none
+		.hl-index
+			display: block
+		.has-nested
+			position: relative
+			> a
+				z-index: 4
+			&:hover
+				.h-nav-nested
+					box-shadow: 0 -60px rgba(255, 255, 255, 1)
+					transition: visibility 300ms, opacity 300ms, box-shadow 150ms
+		.h-nav-nested
+			background: white
+			padding-top: 8px
+			padding-bottom: 8px
+			transition: visibility 300ms, opacity 300ms, box-shadow 450ms
+			box-shadow: 0 -50px rgba(255, 255, 255, 0)
+			-webkit-backface-visibility: hidden
+			a
+				line-height: 17px
+				display: block
+				color: #a8bfbf
+				padding-top: 3px
+				padding-bottom: 3px
+				transition: color 200ms
+				&:hover
+					color: #d0303e
+			span
+				display: block
+				line-height: 16px
+		.hn-inner
+			.hn-cell:not(.has-nested)
+				> a
+					span
+						transition: background-color 300ms, box-shadow 300ms
+					&:hover
+						span
+							background: white
+				&:first-child
+					> a
+						span
+							box-shadow: -9px 0 transparent
+						&:hover
+							span
+								box-shadow: -9px 0 white
+				&:last-child
+					> a
+						span
+							box-shadow: 9px 0 transparent
+						&:hover
+							span
+								box-shadow: 9px 0 white
+		.ic-minimap
+			right: 20px
+			bottom: 82px
+		.ic-links
+			left: 20px
+			bottom: 82px
+		.map-more
+			left: 20px
+			bottom: 62px
+			z-index: 1
+		.structure-svg
+			path
+				&.visible
+					fill-opacity: 0.12
+				&.bright-visible
+					fill-opacity: 0.25
+		&.map-zoomed
+			.hn-cell
+				> a
+					color: white
+					text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.57)
+		.map-container
+			&:before
+				display: none
+			&:after
+				display: none
+			.map-inner
+				&:before
+					display: none
+				&:after
+					display: none
+		.mm-structure
+			transform: rotate(90deg)
+			transform-origin: 62% 48%
+	&.inner
+		.header
+			background: white
+			> .container
+				width: 100%
+				position: relative
+				z-index: 4
+				background: white
+		main
+			background: #b6cbd7 url(img('inner_page_bg.png')) center 80px fixed no-repeat
+		.hl-inner
+			display: block
+		.h-nav-nested
+			white-space: nowrap
+			a
+				&:first-child
+					padding-left: 0
+					span
+						padding-left: 0
+				&:last-child
+					padding-right: 0
+					span
+						padding-right: 0
+		.mm-structure
+			transform: rotate(80.5deg)
+			transform-origin: 60% 52%
+		.h-logo
+			width: auto
+	&.traffic
+		.fullscreen
+			min-height: 500px
+	&.roads
+		.fullscreen
+			min-height: 50px
+		.map
+			transition: none
+		.gallery-container
+			width: 900px
+	&.ecology
+		main
+			background-image: none
+		.full-page-content
+			min-height: 520px
+		.ic-links
+			left: 20px
+	&.structure-item
+		.map-back
+			box-shadow: none
+			background: none
+		.fullscreen
+			min-height: 575px
+	&.multi-lined-menu
+		.hn-cell
+			> a
+				padding-top: 15px
+@keyframes load-menu
+	from
+		transform: translateY(-70px)
+		opacity: 0
+	to
+		transform: translateY(0)
+		opacity: 1
+@keyframes load-menu-right
+	from
+		transform: translateX(70px)
+		opacity: 0
+	to
+		transform: translateX(0)
+		opacity: 1
+$hNavSpeed: 500ms ease-out
+$hSubNavSpeed: 200ms ease-out
+.h-nav
+	+size(70% 75)
+	position: relative
+	text-align: justify
+	a
+		color: #647f88
+		text-decoration: none
+		font-size: 13px
+		padding-right: 2px
+		padding-left: 2px
+		&.active
+			color: #d0303e
+		&.h-lang
+			animation: load-menu-right $hNavSpeed 700ms 1 both
+			color: white
+			padding-right: 0
+			padding-left: 0
+			span
+				background: #96b7c1
+			&:hover
+				color: #d0303e
+	span
+		padding: 7px 9px 4px
+		text-align: left
+		display: block
+.hn-inner
+	+blocks(0)
+	.hn-cell
+		> a
+			animation: load-menu $hNavSpeed 1 both
+			transition: color 200ms, box-shadow 100ms
+			text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.57)
+		+ .hn-cell
+			> a
+				animation-delay: 100ms
+			+ .hn-cell
+				> a
+					animation-delay: 200ms
+				+ .hn-cell
+					> a
+						animation-delay: 300ms
+					+ .hn-cell
+						> a
+							animation-delay: 400ms
+						+ .hn-cell
+							> a
+								animation-delay: 500ms
+							+ .hn-cell
+								> a
+									animation-delay: 600ms
+		&:first-child
+			a
+				padding-left: 0
+			span
+				padding-left: 0
+		&:last-child
+			a
+				padding-right: 0
+			span
+				padding-right: 0
+.hn-cell
+	z-index: 1
+	height: 75px
+	white-space: nowrap
+	> a
+		display: block
+		position: relative
+		height: 100%
+		text-align: center
+		box-sizing: border-box
+		padding-top: 24px
+	&.has-nested
+		> a
+			&:after
+				content: ''
+				+size(17 9)
+				+sprite(159 10)
+				+stretch($top: auto, $bottom: 10)
+			&.active
+				&:after
+					+sprite(159 0)
+		&:hover
+			> a
+				&:after
+					+sprite(159 0)
+	&:hover
+		> a
+			color: #d0303e !important
+			text-shadow: none !important
+		.h-nav-nested
+			visibility: visible
+			opacity: 1
+			a
+				animation: show-submenu-items $hSubNavSpeed 1 both
+				+ a
+					animation-delay: 100ms
+					+ a
+						animation-delay: 200ms
+						+ a
+							animation-delay: 300ms
+							+ a
+								animation-delay: 400ms
+.h-submenu
+	position: absolute
+	z-index: 3
+	top: 0
+	width: 100%
+	left: 0
+	height: 50px
+	background: rgba(255, 255, 255, 0.8)
+	box-shadow: inset 0 2px rgba(0, 0, 0, 0.1)
+	visibility: hidden
+	opacity: 0
+	transition: opacity 200ms 300ms, visibility 200ms 300ms, top 200ms 300ms, width 200ms 500ms // delay is a shit, add 0ms to the width anyway
+	&.visible
+		top: 100%
+		visibility: visible
+		opacity: 1
+		transition: opacity 300ms, visibility 300ms, top 300ms, width 500ms
+@keyframes hide-submenu-items
+	from
+		opacity: 1
+		visibility: visible
+	to
+		opacity: 0
+		visibility: hidden
+@keyframes show-submenu-items
+	from
+		transform: translateY(-50px)
+		opacity: 0
+		visibility: hidden
+	to
+		transform: translateY(0)
+		opacity: 1
+		visibility: visible
+.h-nav-nested
+	position: absolute
+	z-index: 3
+	left: 0
+	top: 100%
+	+blocks(0)
+	transition: visibility 300ms, opacity 300ms
+	visibility: hidden
+	opacity: 0
+	overflow: hidden
+	a
+		// animation: hide-submenu-items $hSubNavSpeed 1 both
+		line-height: 50px
+		&:hover
+			color: #d0303e
+	span
+		line-height: 38px
+.h-logo
+	width: $narrow
+	img
+		display: none
+		max-width: 100%
+.hl-index
+	margin-top: 20px
+.hl-inner
+	margin-top: 12px
+.index-scene
+	+stretch($bottom: 62)
+	// background: url(img('bg.jpg')) center top / cover
+	background: black
+.index-parallax
+	overflow: hidden
+	+stretch
+	.layer
+		img
+			position: absolute
+.ip-1
+	img
+		left: 77%
+		top: 15%
+.ip-2
+	img
+		left: 29%
+		top: 19%
+.ip-3
+	img
+		left: 87%
+		top: 38%
+.ip-4
+	img
+		left: 37%
+		top: 40%
+.ip-5
+	img
+		left: 15%
+		top: 40%
+.ip-6
+	img
+		left: 68%
+		top: 68%
+.ip-7
+	img
+		left: 19%
+		top: 75%
+.header
+	position: relative
+.index-content
+	color: white
+	+stretch
+	> .container
+		height: 100%
+		position: relative
+		+valign(bottom)
+		text-align: center
+	&:before
+		+stretch($top: auto, $bottom: 62)
+		height: 170px
+		content: ''
+		background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5))
+.ic-title
+	text-align: left
+	margin-bottom: 90px
+	p
+		font-size: 35px
+		margin-bottom: 0px
+		font-weight: normal
+		letter-spacing: 0.2px
+	span
+		font-size: 35px
+		font-weight: normal
+		letter-spacing: 0.2px
+.ic-minimap
+	position: absolute
+	right: 0
+	bottom: 20px
+.ic-links
+	left: 0
+	bottom: 20px
+	position: absolute
+	+justify
+	white-space: nowrap
+	a,
+	span
+		+size(92 93)
+		font-size: 14px
+		padding-top: 50px
+		margin-right: 20px
+		+sprite(66 0)
+		cursor: pointer
+		text-align: center
+		+hover-underline
+		color: #2c2c2c
+		box-sizing: border-box
+		position: relative
+		white-space: normal
+		&:before
+			content: ''
+			position: absolute
+			margin: auto
+			left: 0
+			right: 0
+			transition: opacity ease-in 200ms
+			opacity: 0.7
+		&:hover
+			&:before
+				opacity: 1
+	div
+		+size(92 93)
+		+sprite(66 0)
+		position: relative
+		margin-right: 20px
+		&:before
+			content: ''
+			+stretch
+.ic-direction
+	&:before
+		+size(45 44)
+		+sprite(0 534)
+.ic-more
+	&:before
+		+size(48 27)
+		+sprite(0 28)
+		top: 16px
+.ic-apts
+	&:before
+		+size(16 33)
+		+sprite(49 28)
+		top: 3px
+.ic-stats
+	position: absolute
+	left: 20px
+	top: 190px
+	width: $narrow
+	text-align: left
+	img
+		max-width: 100%
+		margin-bottom: 30px
+.ics-item
+	position: absolute
+	left: 0
+	top: 0
+	visibility: hidden
+	opacity: 0
+	transition: opacity 800ms, visibility 800ms
+	box-shadow: 0 0 99px 49px rgba(0, 0, 0, 0.34)
+	border-radius: 200px
+	background: rgba(0, 0, 0, 0.29)
+	text-shadow: 1px 2px 2px rgba(0,0,0,0.56)
+	&.visible
+		visibility: visible
+		opacity: 1
+.list-1
+	margin-bottom: -20px
+	li
+		margin-bottom: 15px
+		padding-left: 20px
+		position: relative
+		&:before
+			content: '*'
+			color: #4bc9f4
+			font-size: 37px
+			position: absolute
+			top: -5px
+			left: 0
+.list-2
+	@extend .list-1
+	li
+		&:before
+			color: white
+.ic-choose
+	font-size: 15px
+	color: #4e4e4e
+	+inline-block(super)
+	background: white
+	line-height: 20px
+	padding: 0 150px 0 22px
+	margin-left: 2px
+	&:after
+		margin: 6px 0 0 9px
+		opacity: 0.7
+		transition: opacity 200ms
+		content: ''
+		+size(26 7)
+		+sprite(0 20)
+		+inline-block
+	&:hover
+		&:after
+			opacity: 1
+.footer
+	color: white
+	height: 62px
+	background: #171717
+	position: relative
+	overflow: hidden
+	.container
+		height: 100%
+.f-left
+	+blocks(0)
+	height: 100% // to inherit by setting 100%
+	overflow: hidden
+.f-right
+	+blocks(0)
+	height: 100%
+.f-logo
+	width: $narrow
+	height: 100%
+	margin-right: 30px
+	line-height: 59px
+	background: white
+	img
+		max-width: 100%
+		+inline-block(middle)
+.f-slider
+	height: 100%
+	+blocks(0)
+	> span
+		+size(44 100%)
+		position: relative
+		background: #0e0e0e
+		cursor: pointer
+		user-select: none
+		&:before
+			content: ''
+			+stretch
+			+size(10 19)
+			opacity: 0.7
+			transition: opacity 200ms
+		&:hover
+			&:before
+				opacity: 1
+.fs-prev
+	border-right: 1px solid #171717
+	&:before
+		+sprite(41 0)
+.fs-next
+	&:before
+		+sprite(30 0)
+.fs-date
+	+size(90 100%)
+	box-sizing: border-box
+	padding-top: 13px
+	margin-right: 10px
+	font-size: 13px
+.fs-text
+	+size(300 50)
+	box-sizing: border-box
+	padding-top: 13px
+	overflow: hidden
+.fs-container
+	position: relative
+	+size(400 100%)
+.fs-item
+	+stretch
+	line-height: 19px
+	+blocks(0)
+	opacity: 0
+	visibility: hidden
+	transition: all 400ms cubic-bezier(.72, .04, .63, 1.45)
+	color: inherit
+	text-decoration: none
+	&:hover
+		.fs-text
+			text-decoration: underline
+	.-o- &
+		transition: all 400ms ease-in
+	&.visible
+		transition: all 600ms cubic-bezier(.72, .04, .63, 1.45)
+		.-o- &
+			transition: all 600ms ease-in
+		opacity: 1
+		visibility: visible
+	&.in-next
+		transition: all 600ms cubic-bezier(.72, .04, .63, 1.45)
+		transform: translateX(80px)
+		.-o- &
+			transition: all 600ms ease-in
+	&.out-next
+		transition: all 400ms cubic-bezier(.72, .04, .63, 1.45)
+		transform: translateX(-200px)
+		.-o- &
+			transition: all 400ms ease-in
+	&.in-prev
+		transition: all 600ms cubic-bezier(.72, .04, .63, 1.45)
+		transform: translateX(-80px)
+		.-o- &
+			transition: all 600ms ease-in
+	&.out-prev
+		transition: all 400ms cubic-bezier(.72, .04, .63, 1.45)
+		transform: translateX(200px)
+		.-o- &
+			transition: all 400ms ease-in
+.f-studio
+	background: #202020
+	+size(44 100%)
+	position: relative
+	&:before
+		content: ''
+		+stretch
+		+size(29 17)
+		+sprite
+		opacity: 0.7
+		transition: opacity 200ms
+	&:hover
+		&:before
+			opacity: 1
+.f-phones-wide
+	+blocks(0)
+	margin-right: 35px
+	p
+		font-size: 19px
+		margin-bottom: 3px
+	span
+		display: block
+		font-size: 13px
+		font-weight: 300
+.fpw-item
+	padding-top: 9px
+	&:first-child
+		margin-right: 35px
+.f-phones-narrow
+	width: 205px
+	padding-top: 9px
+	p
+		font-size: 19px
+$numberSpeed: 300ms ease-in
+.fpn-number
+	position: relative
+	height: 22px
+	margin-bottom: 1px
+	p
+		position: absolute
+		left: 0
+		top: 0
+		opacity: 0
+		visibility: hidden
+		transform: translateY(20px)
+		transition: opacity $numberSpeed, visibility $numberSpeed, transform $numberSpeed
+		&.visible
+			opacity: 1
+			visibility: visible
+			transform: translateY(0)
+			transition: opacity $numberSpeed, visibility $numberSpeed, transform 0ms 0ms
+.fpn-tabs
+	+blocks(0, 13px)
+	li
+		margin-right: 1px
+		padding: 2px 8px 4px
+		cursor: pointer
+		span
+			display: inline-block
+			border-bottom: 1px dashed
+			line-height: 13px
+		&.active
+			background: #0e0e0e
+			span
+				border-bottom-color: transparent
+.content
+	padding: 60px 0
+	color: #373737
+	position: relative
+.io-gallery
+	background: rgba(0, 0, 0, 0.8)
+.gallery-container
+	+stretch($top: 40, $bottom: 40)
+	margin: 0 auto
+	min-height: 300px
+	background: white
+	width: 900px
+	text-align: center
+	box-sizing: border-box
+	padding: 60px 0
+	.dtc
+		padding: 0 20px
+	header
+		height: 60px
+		+stretch($bottom: auto)
+		font-size: 19px
+	footer
+		height: 60px
+		+stretch($top: auto)
+		font-size: 13px
+	&.no-title
+		padding-top: 0
+		header
+			display: none
+	&.no-text
+		padding-bottom: 0
+		footer
+			display: none
+	iframe
+		+size(100% 100%)
+.gallery-image
+	height: 100%
+	+valign
+	img
+		max-width: 100%
+		max-height: 100%
+.content-aside
+	width: 26%
+	&.left
+		float: left
+		padding-right: 4%
+		margin-right: 3px
+	&.right
+		float: right
+		padding-left: 4%
+		margin-left: 3px
+	a
+		display: block
+		margin-bottom: 25px
+	h3
+		margin-bottom: 30px
+.content-main
+	overflow: hidden
+	padding: 0 10px
+	.left + &
+		// padding-right: 10px
+	.right + &
+		// padding-left: 10px
+h2
+	font-size: 26px
+	font-weight: 300
+h3
+	font-size: 21px
+	font-weight: 300
+.offer-tabs
+	@extend .tabs
+	margin: 30px 0 40px
+	a
+		font-size: 17px
+.tabs
+	+blocks(0, 13px)
+	border-top: 2px solid white
+	border-bottom: 2px solid white
+	display: inline-block
+	position: relative
+	&:before
+		content: ''
+		position: absolute
+		right: 100%
+		top: -2px
+		+size(9 42)
+		+sprite(0 56)
+	&:after
+		content: ''
+		position: absolute
+		left: 100%
+		top: -2px
+		+size(9 42)
+		+sprite(10 56)
+	a
+		text-decoration: none
+		color: white
+		height: 38px
+		line-height: 38px
+		padding: 0 20px
+		color: white
+		position: relative
+		&.active
+			cursor: default
+			color: #3a3a3a
+			background: white
+			&:before
+				content: ''
+				position: absolute
+				right: 100%
+				top: -2px
+				+size(9 42)
+				+sprite(20 56)
+			&:after
+				content: ''
+				position: absolute
+				left: 100%
+				top: -2px
+				+size(9 42)
+				+sprite(30 56)
+.offer-container
+	max-width: 700px
+.offer-list
+	+blocks(4)
+	margin-bottom: -30px
+	a
+		box-sizing: border-box
+		padding: 10px 20px 0 50px
+		position: relative
+		text-decoration: none
+		margin-bottom: 30px
+		min-height: 48px
+		p
+			text-decoration: underline
+		span
+			display: block
+			font-size: 13px
+		&:before
+			content: ''
+			position: absolute
+			left: 0
+			top: 0
+			+size(36 48)
+			+sprite(0 99)
+		&:hover
+			&:before
+				background-position: -37px -99px
+.aside-slider
+	background: url(img('aside_slider_bg.png'))
+	+size(273 309)
+	box-sizing: border-box
+	position: relative
+	text-align: center
+.as-container
+	position: relative
+	top: 80px
+	margin: 0 41px
+.as-slide
+	opacity: 0
+	visibility: hidden
+	position: absolute
+	left: 0
+	right: 0
+	top: 0
+	transition: opacity 300ms, visibility 300ms, top 300ms
+	text-decoration: none
+	&.visible
+		opacity: 1
+		visibility: visible
+	&.in-next,
+	&.in-prev
+		top: -20px
+	img
+		display: inline-block
+		margin-bottom: 15px
+	p
+		line-height: 20px
+		font-size: 17px
+	&:after
+		content: ''
+		cursor: pointer
+		position: absolute
+		left: -14px
+		top: -17px
+		+size(39 39)
+		+sprite(74 93)
+		opacity: 0.9
+		transition: opacity 200ms
+	&:hover
+		&:after
+			opacity: 1
+.as-controls
+	+stretch($top: auto, $bottom: 18)
+	+blocks(0)
+	span
+		+size(45 45)
+		position: relative
+		cursor: pointer
+		user-select: none
+		&:before
+			content: ''
+			+stretch
+			+size(10 19)
+			opacity: 0.4
+			transition: opacity 200ms
+		&:hover
+			&:before
+				opacity: 1
+.as-prev
+	&:before
+		+sprite(40 62)
+.as-next
+	&:before
+		+sprite(51 62)
+.f-phones
+	+blocks(0)
+	line-height: 62px
+	p
+		font-size: 15px
+		padding: 0 20px
+		height: 60px
+		&:not(:last-child)
+			border-right: 1px solid #2c2c2c
+	span
+		font-size: 17px
+		font-weight: normal
+.news-list
+	+blocks(3)
+	margin-bottom: -45px
+.news-item
+	box-sizing: border-box
+	margin-bottom: 45px
+	padding-right: 40px
+	overflow: hidden
+	text-decoration: none
+	&:hover
+		p
+			color: white
+		span
+			color: $linkColor
+	figure
+		float: left
+		img
+			max-width: 80px
+			margin-right: 20px
+	figcaption
+		overflow: hidden
+	p
+		text-decoration: underline
+		font-size: 15px
+		display: inline-block
+		margin-bottom: 13px
+		line-height: 17px
+	span
+		display: block
+		font-size: 13px
+.pagination
+	margin-top: 50px
+	+blocks(0, 14px)
+	a,
+	span
+		padding: 0 7px
+		line-height: 20px
+	a
+		text-decoration: none
+		&:hover
+			color: white
+	span
+		color: #d0303e
+.news-months
+	line-height: 40px
+	margin: 15px 0 30px
+	width: 100%
+	a
+		margin-right: 10px
+		&.active
+			color: white
+			text-decoration: none
+.inner-slider
+	+size(250 140)
+	padding: 8px
+	background: white
+	position: relative
+	z-index: 1
+	&.left
+		float: left
+		margin: 0 50px 20px 0
+	&.right
+		float: right
+		margin: 0 0 20px 50px
+.is-container
+	position: absolute
+	+stretch(8, 8, 8, 8)
+	overflow: hidden
+.is-slide
+	+stretch
+	transition: transform 600ms cubic-bezier(.72, .04, .63, 1.45)
+	z-index: 0
+	.-o- &
+		transition: transform 400ms ease-in
+	&.visible
+		z-index: 2
+	&.in-next
+		transform: translateX(50%)
+	&.out-next
+		transform: translateX(-100%)
+		z-index: 3
+	&.in-prev
+		transform: translateX(-50%)
+	&.out-prev
+		transform: translateX(100%)
+		z-index: 3
+	&:after
+		content: ''
+		+size(31 31)
+		+sprite(114 117)
+		+stretch
+		transform: scale(0.8)
+		opacity: 0.8
+		transition: transform cubic-bezier(.58,.03,.48,1.48) 200ms, opacity 150ms
+	&:hover
+		&:after
+			transform: scale(1)
+			opacity: 1
+.is-controls
+	position: absolute
+	z-index: 3
+	bottom: 0
+	left: 0
+	+blocks(0)
+	user-select: none
+	span
+		cursor: pointer
+		+size(50 35)
+		background: white
+		position: relative
+		&:before
+			content: ''
+			+stretch
+			+size(20 11)
+.is-prev
+	&:before
+		+sprite(114 93)
+.is-next
+	&:before
+		+sprite(114 105)
+.date
+	font-size: 13px
+.light
+	color: #596c76
+.g-close
+	position: absolute
+	right: -16px
+	top: -19px
+	+size(33 39)
+	+sprite(54 148)
+	cursor: pointer
+	&:before
+		content: ''
+		+stretch
+		+size(15 15)
+		+sprite(88 133)
+		opacity: 0.3
+		transition: opacity 200ms
+	&:hover
+		&:before
+			opacity: 1
+%gallery-control
+	width: 53px
+	cursor: pointer
+	span
+		+size(53 64)
+		+sprite(0 148)
+		+stretch
+		&:before
+			content: ''
+			+size(10 19)
+			+stretch
+			opacity: 0.3
+			transition: opacity 200ms
+	&:hover
+		span
+			&:before
+				opacity: 1
+.gallery-prev
+	@extend %gallery-control
+	+stretch($left: -26, $right: auto)
+	span
+		&:before
+			+sprite(99 149)
+.gallery-next
+	@extend %gallery-control
+	+stretch($right: -26, $left: auto)
+	span
+		&:before
+			+sprite(88 149)
+.full-page-content
+	position: relative
+	min-height: 400px
+	overflow: hidden
+.map-container
+	+stretch
+	overflow: hidden
+	&.drag
+		.map-drag-element
+			cursor: -webkit-grabbing
+			cursor: grabbing
+	&:before,
+	&:after
+		content: ''
+		z-index: 1
+		opacity: 0
+		transition: opacity 200ms
+		pointer-events: none
+		position: absolute
+	.map-inner
+		&:before
+			+stretch($bottom: auto)
+			height: 40px
+			background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0))
+		&:after
+			+stretch($top: auto)
+			height: 40px
+			background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0))
+	&:before
+		+stretch($right: auto)
+		width: 40px
+		background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0))
+	&:after
+		+stretch($left: auto)
+		width: 40px
+		background: linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0))
+	&.scrollable-left
+		&:before
+			opacity: 1
+	&.scrollable-right
+		&:after
+			opacity: 1
+	&.scrollable-up
+		.map-inner
+			&:before
+				opacity: 1
+	&.scrollable-down
+		.map-inner
+			&:after
+				opacity: 1
+.map-inner
+	+stretch
+	z-index: 0
+	&:before,
+	&:after
+		content: ''
+		z-index: 1
+		opacity: 0
+		transition: opacity 200ms
+		pointer-events: none
+		position: absolute
+.map
+	position: relative
+	display: inline-block
+	z-index: 0
+	opacity: 0
+	transition: opacity 2000ms
+	&.loaded
+		opacity: 1
+	&.infrastructure-map
+		.infrastructure-center-label
+			cursor: pointer
+		[data-pin-position=inner]
+			opacity: 0
+			visibility: hidden
+		&.zoomed
+			.infrastructure-center-label
+				opacity: 0
+				visibility: hidden
+			[data-pin-position=inner]
+				opacity: 1
+				visibility: visible
+			[data-pin-position=outer]
+				opacity: 0
+				visibility: hidden
+.structure-svg
+	position: absolute
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	path
+		fill-opacity: 0
+		fill-rule: evenodd
+		fill: black
+		transition: fill-opacity 700ms
+		&.visible
+			fill-opacity: 0.5
+.map-drag-element
+	cursor: -webkit-grab
+	cursor: grab
+	user-select: none
+[data-trigger-path]
+	cursor: pointer
+.pin
+	position: absolute
+	+size(0 0)
+	z-index: 2
+	transition: opacity 400ms, visibility 400ms
+	&:hover,
+	&.hover
+		z-index: 3
+		color: black
+	&.hidden
+		opacity: 0 !important
+		visibility: hidden !important
+	&.large
+		.p-container
+			height: 60px
+			&:before
+				left: 6px
+				top: 54px
+			&:after
+				+size(25 12)
+				+sprite(156 737)
+				left: 18px
+		.p-inner
+			height: 60px
+			padding: 0 19px
+			&:after
+				+size(19 60)
+				+sprite(116 737)
+			&:before
+				+size(19 60)
+				+sprite(136 737)
+		.p-content
+			&:after
+				left: 24px
+		.p-text-cropper
+			width: 23px
+			padding-left: 23px
+		.p-icon
+			left: -11px
+			top: 8px
+			+size(45 45)
+			&:before
+				+size(45 45)
+.p-container
+	position: absolute
+	height: 48px
+	left: -25px
+	top: -57px
+	&:before
+		content: ''
+		position: absolute
+		z-index: 0
+		left: -1px
+		top: 41px
+		+size(50 30)
+		+sprite(32 213)
+	&:after
+		content: ''
+		position: absolute
+		z-index: 0
+		left: 14px
+		top: 100%
+		+size(20 9)
+		+sprite(32 244)
+	&:hover,
+	&.hover
+		.p-text
+			opacity: 1
+.p-inner
+	height: 48px
+	display: block
+	padding: 0 15px
+	position: relative
+	z-index: 1
+	&:after
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		+size(15 48)
+		+sprite(0 213)
+	&:before
+		content: ''
+		position: absolute
+		top: 0
+		right: 0
+		+size(15 48)
+		+sprite(16 213)
+.p-content
+	height: 100%
+	display: block
+	background: white
+	position: relative
+	&:before
+		content: ''
+		+stretch($bottom: auto)
+		height: 1px
+		background: #d0dce4
+	&:after
+		content: ''
+		+stretch($top: auto, $left: 18)
+		height: 1px
+		background: #d0dce4
+.p-icon
+	position: absolute
+	z-index: 2
+	left: -7px
+	top: 8px
+	+size(32 32)
+	&:before
+		content: ''
+		+stretch
+		+size(32 32)
+.p-text-cropper
+	white-space: nowrap
+	display: block
+	height: 100%
+	width: 18px
+	overflow: hidden
+	box-sizing: border-box
+	padding-left: 18px
+	+valign
+	transition: width ease-out 200ms
+.p-text
+	opacity: 0
+	transition: opacity 200ms
+	padding: 0 3px 0 17px
+	font-size: 13px
+
+
+/* location */
+@for $i from 0 through 9 // start from 0 anyway
+	.p-#{$i}
+		.p-icon
+			&:before
+				+icon($i * 40 + 4 125) // offset because of using 32x32
+
+/* ecology */
+@for $i from 0 through 9
+	.p-#{$i + 10}
+		.p-icon
+			&:before
+				+icon($i * 45 279)
+
+
+.p-20
+	.p-icon
+		&:before
+			+icon(5 244)
+.p-21
+	.p-icon
+		&:before
+			+icon(44 245)
+.p-22
+	.p-icon
+		&:before
+			+icon(83 245)
+.p-23
+	.p-icon
+		&:before
+			+icon(124 244)
+.p-24
+	.p-icon
+		&:before
+			+icon(165 245)
+.p-25
+	.p-icon
+		&:before
+			+icon(207 243)
+.p-26
+	.p-icon
+		&:before
+			+icon(245 245)
+.p-27
+	.p-icon
+		&:before
+			+icon(284 244)
+.p-28
+	.p-icon
+		&:before
+			+icon(324 244)
+.p-29
+	.p-icon
+		&:before
+			+icon(364 243)
+.p-30
+	.p-icon
+		&:before
+			+icon(403 245)
+.p-31
+	.p-icon
+		&:before
+			+icon(444 245)
+.p-32
+	.p-icon
+		&:before
+			+icon(484 245)
+.p-33
+	.p-icon
+		&:before
+			+icon(524 244)
+
+.p-50
+	.p-icon
+		&:before
+			+icon(407 22)
+.p-51
+	.p-icon
+		&:before
+			+icon(453 22)
+.p-52
+	.p-icon
+		&:before
+			+icon(499 22)
+
+
+.label
+	position: absolute
+	color: #3b3b3b
+	+size(0 0)
+	z-index: 2
+	transition: opacity 400ms, visibility 400ms
+	&:hover
+		z-index: 3
+	&:before
+		content: ''
+		+size(105 40)
+		+sprite(0 494)
+		position: absolute
+		bottom: -20px
+		left: -52px
+	&.small
+		.l-inner
+			position: relative
+			+size(125 88)
+			+sprite(88 169)
+	&.centered
+		.l-inner
+			text-align: center
+	&.valigned
+		.l-inner
+			+valign
+			> *
+				max-width: 100%
+	&.medium
+		.l-inner
+			position: relative
+			+size(205 101)
+			+sprite(0 262)
+	&.large
+		.l-inner
+			position: relative
+			+size(185 131)
+			+sprite(0 364)
+	&.traffic
+		.l-inner
+			padding-right: 5px
+			padding-left: 5px
+			font-size: 12px
+			+size(98 74)
+			+sprite(69 534)
+			p
+				margin-bottom: 6px
+		span
+			+inline-block(middle)
+			margin: 0 3px
+	.fll
+		margin-right: 13px
+	p
+		margin-bottom: 3px
+	span
+		display: block
+		font-size: 13px
+		color: #727272
+.lt-1
+	+size(15 19)
+	+icon(293 11)
+.lt-2
+	+size(14 23)
+	+icon(213 10)
+.lt-3
+	+size(18 22)
+	+icon(171 10)
+.lt-4
+	+size(18 19)
+	+icon(251 11)
+.l-inner
+	box-sizing: border-box
+	padding: 10px 20px 26px
+	font-size: 13px
+	transform: translate(-50%, -100%)
+	> div
+		width: 100%
+.icon-office
+	content: ''
+	display: inline-block
+	+icon(376 0)
+	+size(30 39)
+.icon-site
+	content: ''
+	display: inline-block
+	+icon(329 0)
+	+size(46 46)
+.infrastructure-filter-container
+	position: relative
+	z-index: 2
+	visibility: visible
+.infrastructure-filter
+	position: absolute
+	min-height: 400px
+	right: 20px
+	top: 0
+.if-inner
+	+stretch($top: 50, $bottom: 50, $left: auto)
+	> span
+		position: absolute
+		right: 0
+		cursor: pointer
+		user-select: none
+		transition: visibility 100ms, opacity 100ms
+		&.hidden
+			visibility: hidden
+			opacity: 0
+		&:before
+			content: ''
+			+stretch
+			+size(29 10)
+.map-zoom
+	position: absolute
+	min-height: 400px
+	left: 20px
+	top: 0
+	z-index: 2
+.map-contacts
+	position: absolute
+	min-height: 400px
+	left: 20px
+	top: 0
+	z-index: 2
+	&.show-form
+		.mc-form
+			opacity: 1
+			visibility: visible
+.mz-inner
+	+stretch($right: auto)
+	+valign
+.mz-container
+	> span
+		cursor: pointer
+		user-select: none
+		+size(40 40)
+		display: block
+		position: relative
+		&:before
+			content: ''
+			+size(30 30)
+			+stretch
+.mz-in
+	&:before
+		+sprite(159 20)
+.mz-out
+	margin-bottom: 10px
+	&:before
+		+sprite(159 51)
+.mz-range
+	margin: 15px 0
+	cursor: pointer
+	height: 92px
+	background: url(img('zoom_range_bg.png')) center top repeat-y
+.mz-level
+	height: 3px
+	position: relative
+	background: white
+	display: block
+	transform: translateY(-1px)
+	margin: 0 3px
+	transition: top 200ms
+.mz-indicator
+	color: white
+	text-align: center
+	font-size: 15px
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4)
+	line-height: 21px
+.if-container
+	overflow: hidden
+	height: 100%
+	padding-left: 10px
+	+valign
+.if-prev
+	+size(60 30)
+	top: -30px
+	&:before
+		+sprite(105 494)
+.if-next
+	+size(60 30)
+	bottom: -30px
+	&:before
+		+sprite(105 505)
+.if-item
+	float: right
+	clear: right
+	height: 60px
+	margin-bottom: 1px
+	position: relative
+	cursor: pointer
+	user-select: none
+	white-space: nowrap
+	+blocks(0)
+	&:before
+		content: ''
+		top: 0
+		position: absolute
+		right: 100%
+		+triangle(left, white, 60, 0)
+		transition: border-width cubic-bezier(.81,.04,.49,1.54) 200ms
+	&.active
+		&:before
+			+triangle(left, white, 60, 10)
+		.if-bg
+			&:after
+				opacity: 1
+.if-text
+	line-height: 60px
+	background: white
+	width: 0
+	padding-left: 15px
+	position: relative
+	margin-left: -15px
+	left: 15px
+	transition: ease-out 150ms
+	span
+		white-space: nowrap
+.if-bg
+	+size(60 100%)
+	background: white
+	position: relative
+	&:after
+		content: ''
+		+stretch
+		+size(40 40)
+		opacity: 0.8
+		transition: opacity 200ms
+@for $i from 0 through 20
+	.if-#{$i + 20}
+		.if-bg
+			&:after
+				+icon($i * 40 200)
+@for $i from 0 through 20
+	.if-#{$i + 40}
+		.if-bg
+			&:after
+				+icon($i * 40 0)
+		&.active
+			.if-bg
+				&:after
+					+icon($i * 40 40)
+.map-more
+	visibility: hidden
+	opacity: 0
+	transition: visibility 150ms, opacity 150ms, transform 0ms 200ms
+	position: absolute
+	bottom: 0
+	left: 0
+	width: 235px
+	padding: 20px 25px
+	background: white
+	color: #373737
+	transform: translate(-60px, 100%)
+	text-align: left
+	&.visible
+		visibility: visible
+		opacity: 1
+		transition: visibility 150ms, opacity 150ms, transform 200ms
+		transform: translate(0, 0)
+	&:after
+		content: ''
+		+stretch($top: auto)
+		height: 25px
+		background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1))
+.mm-close
+	@extend .g-close
+.map-nested
+	z-index: 3
+	display: none
+	cursor: pointer
+.mn-pin
+	transform: translate(-50%, -50%)
+	position: absolute
+	text-align: center
+	background: white
+	border-radius: 50%
+.mn-0
+	+size(52 52)
+	line-height: 52px
+.mn-1
+	+size(60 60)
+	line-height: 60px
+.mn-close
+	@extend .g-close
+	right: 10px
+	top: 10px
+	z-index: 2
+	display: none
+.map-stretch
+	position: absolute
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	transition: opacity 200ms, visibility 200ms
+	visibility: visible
+	opacity: 1
+	&.hidden
+		visibility: hidden
+		opacity: 0
+.roads-overlay-visible
+	.map-container
+		&:before,
+		&:after
+			z-index: -1
+	.map-inner
+		&:before,
+		&:after
+			z-index: -1
+	.map-zoom
+		z-index: 0
+	.map-legend
+		z-index: 0
+	.map-nested
+		display: block
+	.mn-close
+		display: block
+	.infrastructure-filter-container
+		z-index: 0
+		visibility: hidden // по идее этого должно быть достаточно
+.map-legend
+	position: absolute
+	right: 20px
+	top: 0
+	z-index: 2
+	width: 200px
+.ml-inner
+	+stretch($top: 20, $bottom: 43, $left: auto)
+	+valign
+	overflow: auto
+	transition: visibility 200ms, opacity 200ms
+.ml-container
+	background: rgba(255, 255, 255, 0.8)
+	padding: 22px 20px
+	transform: scale(1)
+	transition: transform ease-out 200ms, opacity 200ms, visibility 200ms
+	transform-origin: right bottom
+	p
+		margin-bottom: 15px
+		font-size: 15px
+	ul
+		font-size: 13px
+		&:not(:last-child)
+			margin-bottom: 25px
+	li
+		margin-bottom: 13px
+		padding-left: 25px
+		position: relative
+		&:before
+			content: ''
+			+size(20 20)
+			position: absolute
+			left: 0
+			top: -2px
+.ml-0
+	&:before
+		+icon(420 0)
+.ml-1
+	&:before
+		+icon(440 0)
+.ml-2
+	&:before
+		+icon(460 0)
+.ml-3
+	&:before
+		+icon(480 0)
+.ml-4
+	&:before
+		+icon(500 0)
+.ml-10
+	&:before
+		+icon(520 0)
+.ml-11
+	&:before
+		+icon(540 0)
+.ml-12
+	&:before
+		+icon(560 0)
+.ml-13
+	&:before
+		+icon(580 0)
+.ml-toggle
+	font-size: 13px
+	line-height: 23px
+	color: #96b7c1
+	background: rgba(255, 255, 255, 0.8)
+	position: absolute
+	right: 0
+	bottom: 20px
+	width: 100%
+	cursor: pointer
+	transition: line-height 200ms, font-size 200ms, bottom 150ms
+	// box-sizing: border-box
+	user-select: none
+	// padding-left: 20px
+	text-align: center
+	&:before
+		content: ''
+		background: #96b7c1
+		transition: height 200ms, width 200ms
+		+size(23 23)
+		position: relative
+		float: right
+	&:after
+		content: ''
+		+sprite(177 0)
+		+size(16 16)
+		+stretch($right: 3, $left: auto)
+		transition: transform ease-out 350ms, right 200ms
+		transform: rotate(0)
+	.mlt-show
+		display: none
+.hidden
+	.ml-toggle
+		font-size: 15px
+		color: #4e4e4e
+		line-height: 30px
+		bottom: 20px !important
+		&:after
+			transform: rotate(-180deg)
+			right: 7px
+		&:before
+			+size(30 30)
+		.mlt-show
+			display: block
+		.mlt-hide
+			display: none
+	.ml-container
+		transform: scale(0.8)
+		opacity: 0
+		visibility: hidden // not neccessary
+	.ml-inner
+		visibility: hidden
+		opacity: 0 // windows rendering bug
+.mc-tabs
+	+blocks(0)
+	margin-bottom: 20px
+	a
+		padding: 5px 5px
+		text-decoration: none
+		&:not(:last-child)
+			margin-right: 20px
+		&:hover
+			color: $linkColor
+		&.active
+			background: #e6e6e6
+			cursor: default
+			span
+				border-bottom-color: transparent
+	span
+		display: block
+		border-bottom: 1px dashed
+		line-height: 14px
+.overflow-container
+	max-height: 100%
+	overflow: auto
+.contacts-map-container
+	+stretch
+.structure-image
+	+stretch
+	z-index: 1
+	img
+		transition: opacity 800ms
+$gradientStart: rgba(0, 0, 0, 0.6)
+.structure-overlay
+	+stretch
+	z-index: 1
+	&:before
+		content: ''
+		+stretch($right: auto)
+		width: 400px
+		z-index: 2
+		background: linear-gradient(to right, $gradientStart, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0))
+	&:after
+		content: ''
+		+stretch($left: auto)
+		width: 400px
+		z-index: 2
+		background: linear-gradient(to left, $gradientStart, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0))
+.so-left
+	+stretch($right: auto)
+	z-index: 1
+	background: $gradientStart
+.so-right
+	+stretch($left: auto)
+	z-index: 1
+	background: $gradientStart
+.si-shadow
+	height: 100%
+.contact-person
+	+blocks(null, 20px, middle)
+	margin: 20px 0
+	figure
+		margin-right: 10px
+	p
+		font-size: 16px
+		margin-bottom: 3px
+	span
+		color: #7d7d7d
+.large
+	font-size: 16px
+.contacts-mail
+	+justify
+	margin-bottom: 20px
+	a
+		line-height: 15px
+		position: relative // chrome
+		&:hover
+			color: $linkColor
+%pseudo-link
+	color: #647f88
+	+hover-underline
+	cursor: pointer
+.mail-us
+	@extend %pseudo-link
+	line-height: 15px
+	position: relative // chrome
+	&:before
+		content: ''
+		+size(26 15)
+		+sprite(159 82)
+		+inline-block
+		margin-right: 6px
+.cm-bookmark
+	@extend %pseudo-link
+.address-block
+	margin: 20px 0
+	&:last-child
+		margin-bottom: 0
+.mc-inner
+	+stretch($top: 20, $bottom: 20, $right: auto)
+	// width: 1px // fallback?
+	width: 0
+	.overflow-container
+		// +valign
+		width: 400px
+.mc-container
+	background: white
+	padding: 22px 20px
+	h3
+		margin-bottom: 20px
+.mc-form
+	opacity: 0
+	width: 0
+	visibility: hidden
+	transition: opacity 200ms, visibility 200ms
+	// +valign
+	+stretch($top: 20, $bottom: 20, $right: auto, $left: 403)
+	.overflow-container
+		// +valign
+		width: 360px
+	h3
+		margin-bottom: 20px
+	.input
+		margin-bottom: 15px
+	article
+		margin-bottom: 20px
+.mcf-container
+	background: white
+	padding: 22px 20px
+.captcha-container
+	width: 130px
+	height: 39px
+	line-height: 35px
+	box-sizing: border-box
+	border: 2px solid #e6e6e6
+	padding-right: 35px
+	text-align: center
+	img
+		display: inline
+		vertical-align: middle
+		max-width: 100%
+		max-height: 100%
+.captcha-input
+	width: 75px
+	input
+		padding-right: 10px
+		padding-left: 10px
+		line-height: 18px
+.mc-hide
+	@extend %pseudo-link
+.captcha-refresh
+	cursor: pointer
+	+stretch($left: auto)
+	width: 35px
+	background: #f0f0f0
+	&:before
+		content: ''
+		+size(24 21)
+		+sprite(190 17)
+		+stretch
+.map-ecology
+	background: url(img('map_ecology_bg.png')) center top no-repeat
+	position: relative
+	height: 100%
+	&.before
+		.met-before
+			visibility: visible
+			opacity: 1
+		.me-before
+			img
+				opacity: 1
+	&.after
+		.met-after
+			visibility: visible
+			opacity: 1
+		.me-after
+			img
+				opacity: 1
+.me-inner
+	+stretch($top: -33, $bottom: auto)
+	+size(990 654)
+	img
+		margin: 0 auto
+		opacity: 0.7
+		transition: opacity 300ms
+.me-clipper
+	width: 2px
+	top: 0
+	bottom: 0
+	position: absolute
+	z-index: 3
+	left: 0
+	background: #dd4658
+	&:before
+		content: ''
+		position: absolute
+		top: 0
+		bottom: 0
+		right: 100%
+		background: url(img('cropper_before.png')) repeat-y
+		width: 31px
+		pointer-events: none
+	&:after
+		content: ''
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 100%
+		background: url(img('cropper_after.png')) repeat-y
+		width: 28px
+		pointer-events: none
+	span
+		+size(36 36)
+		top: 50%
+		left: 50%
+		margin: -18px 0 0 -18px
+		background: #dd4658
+		position: absolute
+		z-index: 1
+		border-radius: 50%
+		cursor: pointer
+		box-shadow: 0 1px 7px rgba(0, 0, 0, 0.3)
+		&:before
+			content: ''
+			+stretch
+			+size(24 13)
+			+sprite(190 39)
+.me-text
+	position: absolute
+	top: 30px
+	font-size: 18px
+	width: 170px
+	z-index: 4
+	opacity: 0
+	visibility: hidden
+	transition: opacity 400ms, visibility 400ms
+	&:after
+		content: ''
+		position: absolute
+		top: 120px
+		+size(30 9)
+.met-before
+	left: 20px
+	color: #64787f
+	&:after
+		left: 0
+		+sprite(146 108)
+.met-after
+	right: 20px
+	color: #2ca80b
+	text-align: right
+	&:after
+		right: 0
+		+sprite(146 98)
+.me-side
+	position: absolute
+	top: 50%
+	margin-top: -50px // to avoid draggable stuff
+	z-index: 4
+	color: #4a6067
+	font-size: 18px
+	text-shadow: 1px 2px 3px rgba(255, 255, 255, 0.6)
+.mes-before
+	left: 20px
+.mes-after
+	right: 20px
+.economy-slider
+	margin-bottom: -70px
+	header
+		aside
+			color: #565d61
+			font-size: 21px
+			line-height: 29px
+			min-width: 150px
+			padding-top: 40px
+			cursor: pointer
+			position: relative
+			&:not(.inactive):hover
+				color: black
+			&.inactive
+				opacity: 0 !important
+			p
+				margin-bottom: 8px
+				position: absolute
+				top: 0
+				opacity: 0
+				visibility: hidden
+				transform: translateY(10px)
+				transition: opacity $numberSpeed, visibility $numberSpeed, transform $numberSpeed
+				&.visible
+					opacity: 1
+					visibility: visible
+					transform: translateY(0)
+					transition: opacity $numberSpeed, visibility $numberSpeed, transform 0ms 0ms
+			&:after
+				content: ''
+				display: block
+				+size(30 9)
+.ec-prev
+	float: left
+	p
+		left: 0
+	&:after
+		+sprite(146 98)
+.ec-next
+	float: right
+	p
+		right: 0
+	&:after
+		+sprite(146 108)
+		float: right
+.ec-container
+	clear: both
+	overflow: hidden
+	padding: 60px 0
+	margin: 0 -20px
+.ec-reel
+	+blocks(0)
+	white-space: nowrap
+	transition: left ease-out 500ms
+	position: relative
+	section
+		width: 100%
+		white-space: normal
+		box-sizing: border-box
+		padding: 0 20px
+.ec-title
+	display: block
+	margin-left: 30%
+	width: 40%
+	position: relative
+	h2
+		position: absolute
+		left: 0
+		top: 0
+		font-weight: normal
+		opacity: 0
+		visibility: hidden
+		transform: translateY(10px)
+		transition: opacity $numberSpeed, visibility $numberSpeed, transform $numberSpeed
+		&.visible
+			opacity: 1
+			visibility: visible
+			transform: translateY(0)
+			transition: opacity $numberSpeed, visibility $numberSpeed, transform 0ms 0ms
+.ec-text
+	margin: 43px 0 0 3%
+	width: 25%
+	float: left
+.ec-figure
+	width: 406px
+	position: relative
+	margin: 0 auto
+.ecf-bg
+	position: absolute
+	left: 50%
+	top: 50%
+	transform: translate(-50%, -50%)
+.ecf-image
+	position: relative
+.ecf-notes
+	position: absolute
+	+stretch($bottom: auto)
+	line-height: 20px
+	p
+		color: white
+		text-shadow: 0 2px 1px rgba(0, 0, 0, 0.3)
+		font-weight: bold
+		display: inline-block
+	span
+		position: absolute
+		left: 480px
+		white-space: nowrap
+	mark
+		position: absolute
+		top: 10px
+		height: 1px
+		background: #596063
+	div
+		position: relative
+		text-align: center
+.ecfn-1
+	margin-top: 11px
+	p
+		font-size: 12px
+		width: 121px
+.ecfn-2
+	margin-top: 14px
+	p
+		font-size: 14px
+		width: 210px
+.ecfn-3
+	margin-top: 20px
+	p
+		font-size: 16px
+		width: 271px
+.ecfn-4
+	margin-top: 22px
+	p
+		font-size: 19px
+		width: 295px
+.ecfn-5
+	margin-top: 58px
+	p
+		font-size: 25px
+		width: 279px
+.ecfn-10
+	margin-top: 8px
+	p
+		font-size: 12px
+		width: 119px
+.ecfn-11
+	margin-top: 10px
+	p
+		font-size: 14px
+		width: 201px
+.ecfn-12
+	margin-top: 17px
+	p
+		font-size: 16px
+		width: 267px
+.ecfn-13
+	margin-top: 24px
+	p
+		font-size: 19px
+		width: 291px
+.ecfn-14
+	margin-top: 71px
+	p
+		font-size: 25px
+		width: 271px
+.ec-tabs
+	+justify
+	margin-bottom: 40px
+	li
+		color: #506166
+		font-size: 15px
+		border: 1px solid white
+		position: relative
+		padding: 3px 8px
+		font-weight: normal
+		cursor: pointer
+		&.active
+			background: white
+			cursor: default
+@for $i from 0 through 5
+	.eci-#{$i}
+		&:before
+			+icon($i * 81 335)
+		&.active
+			&:before
+				+icon($i * 81 513)
+
+@for $i from 0 through 5
+	.eci-#{$i + 6}
+		&:before
+			+icon($i * 81 424)
+		&.active
+			&:before
+				+icon($i * 81 602)
+.ec-tab
+	+blocks(3)
+	margin-bottom: -50px
+.ec-item
+	margin-bottom: 50px
+	position: relative
+	&:before
+		content: ''
+		+inline-block(middle)
+		+size(80 88)
+		margin-right: 15px
+		position: relative
+		top: 0
+		transition: top 300ms
+		z-index: 2
+	&:after
+		content: ''
+		+sprite(0 738)
+		+size(115 73)
+		position: absolute
+		z-index: 1
+		left: -17px
+		top: 54px
+		opacity: 0
+		transition: opacity 300ms
+	&.active
+		&:before
+			top: -5px
+		&:after
+			opacity: 1
+	p
+		+inline-block(middle)
+		max-width: calc(100% - 130px)
+		line-height: 20px
+.map-back
+	position: absolute
+	left: -20px
+	top: 0
+	color: white
+	white-space: nowrap
+	cursor: pointer
+	opacity: 0
+	visibility: hidden
+	transition: opacity 200ms, visibility 200ms
+	text-decoration: none
+	box-shadow: 0 0 99px 49px rgba(0, 0, 0, 0.45)
+	border-radius: 200px
+	background: rgba(0, 0, 0, 0.42)
+	padding: 20px 20px 20px 20px
+	text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.56)
+	&.visible
+		opacity: 1
+		visibility: visible
+	h2
+		margin-bottom: 8px
+	&:hover
+		.mb-link
+			span
+				text-decoration: none
+.mb-link
+	line-height: 10px
+	&:before
+		content: ''
+		+size(14 10)
+		+sprite(190 53)
+		+inline-block(top)
+		margin-right: 3px
+	span
+		text-decoration: underline
+.structure-slider
+	width: 100px
+	margin-top: 50px
+	> span
+		cursor: pointer
+		user-select: none
+		height: 30px
+		display: block
+		transition: visibility 100ms, opacity 100ms
+		position: relative
+		&:before
+			content: ''
+			+stretch
+			+size(29 10)
+.ss-prev
+	&:before
+		+sprite(105 494)
+.ss-next
+	&:before
+		+sprite(105 505)
+.structure-container
+	overflow: hidden
+	height: 270px
+.structure-reel
+	position: relative
+	transition: top ease-in-out 200ms
+.sc-item
+	height: 60px
+	margin-bottom: 10px
+	display: block
+	line-height: 60px
+	text-align: center
+	transition: opacity 400ms
+	&:after
+		content: ''
+		position: absolute
+		+stretch
+		box-sizing: border-box
+		border: 4px solid white
+		transition: border-color 400ms
+	&.active
+		opacity: 0.5
+		&:after
+			border-color: transparent
+.structure-info
+	position: absolute
+	left: 0
+	top: 110px
+	color: white
+.si-item
+	margin-bottom: 30px
+	white-space: nowrap
+	&:before
+		content: ''
+		+size(57 63)
+		+inline-block(middle)
+		margin-right: 15px
+	div
+		+inline-block(middle)
+		white-space: normal
+	p
+		font-weight: bold
+		font-size: 24px
+		line-height: 1
+	span
+		display: block
+		font-size: 17px
+
+@for $i from 0 through 9
+	.si-#{$i}
+		&:before
+			+icon($i * 58 691)
+.structure-controls
+	+stretch($top: auto, $bottom: 20)
+	width: 80px
+	+blocks(0)
+	z-index: 1
+	text-align: center
+	display: none
+	span
+		+size(34 35)
+		cursor: pointer
+		margin-right: 1px
+		position: relative
+		&:before
+			content: ''
+			+size(12 22)
+			+stretch
+			opacity: 0.5
+			transition: opacity 200ms
+		&:hover
+			&:before
+				opacity: 1
+.sc-prev
+	+sprite(146 118)
+	&:before
+		+sprite(186 82)
+.sc-next
+	+sprite(181 118)
+	&:before
+		+sprite(199 82)
+.mm-structure
+	+size(250 190)
+	fill: transparent
+	stroke: white
+	.mm-outer
+		stroke-width: 0.6px
+	.mm-inner
+		stroke-width: 0.3px
+	path
+		fill: white
+		fill-opacity: 0
+		transition: fill-opacity 500ms
+		&[data-map-point]
+			cursor: pointer
+			transition: fill-opacity 300ms
+			&:hover
+				fill-opacity: 1
+.map-text
+	color: white
+	position: absolute
+	font-size: 16px
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.55)
+	white-space: nowrap
+	width: 0
+	height: 0
+	p
+		transform: rotate(-7.4deg) translate(-50%, -50%)
+.mm-structure /* horrible chrome bug */
+	path
+		&.highlighted
+			fill-opacity: 1
+.mt-1
+	margin-right: 100px
+.mt-2
+	margin-right: 20px
+.map-clouds
+	transition: transform 800ms
+.me-container
+	height: 100%
+	position: relative
+
+
+[data-lang="ru"]
+	.label
+		&.traffic
+			.l-inner
+				padding-top: 5px
+				p
+					margin-bottom: 2px
+.-w,
+.-w-ib
+	display: none !important
+.-n
+	display: block !important
+.-n-ib
+	display: inline-block !important
+@media (min-width: 1100px) and (max-width: 1229px)
+	.h-nav
+		a
+			font-size: 14px
+			padding-right: 5px
+			padding-left: 5px
+@media (min-width: 1230px)
+	.-n,
+	.-n-ib
+		display: none !important
+	.-w
+		display: block !important
+	.-w-ib
+		display: inline-block !important
+	.h-logo
+		width: auto
+	.h-nav
+		a
+			font-size: 15px
+			padding-right: 9px
+			padding-left: 9px
+	.f-logo
+		width: auto
+	.ic-stats
+		width: $wide
+		top: 240px
+		font-size: 15px
+	.f-phones
+		p
+			font-size: 17px
+			padding: 0 45px
+		span
+			font-size: 19px
+@media (min-width: 1330px)
+	.h-nav
+		a
+			font-size: 16px
+			padding-right: 11px
+			padding-left: 11px

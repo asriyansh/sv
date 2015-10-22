@@ -1,0 +1,20 @@
+%header.header
+	.container.padded.justify
+		%a.h-logo{href: ""}
+			%img.hl-index{src: "images/logo_istok.png", alt: ""}
+			%img.hl-inner{src: "images/logo_istok_inner.png", alt: ""}
+		%nav.h-nav.justify
+			.hn-inner
+				-["Location", "Infrastructure", "Project structure", "Influence", "Investment<br>opportunities", "Contacts"].each do |i|
+					.hn-cell{class: ("has-nested" if i == "Influence")}
+						%a{href: ""}
+							%span= i
+						-if i == "Influence"
+							.h-nav-nested
+								-["Traffic system", "Road network", "Work places", "Ecology"].each do |j|
+									%a{href: ""}
+										%span= j
+			.hn-cell
+				%a.h-lang{:href => ""}
+					%span Ru
+	.h-submenu

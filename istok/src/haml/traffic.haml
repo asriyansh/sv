@@ -1,0 +1,122 @@
+!!!
+%html{data: {modules: "map traffic"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Istokskiy")
+	%body.inner.traffic
+		.page-wrapper
+			%main
+				=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+				.full-page-content.fullscreen
+					-routes = {40 => "Автобус", 41 => "Троллейбус", 42 => "Электричка", 43 => "Скоростной транспорт"}
+					.infrastructure-filter-container.container.padded
+						.infrastructure-filter.fullscreen
+							.if-inner
+								.if-container
+									.if-reel
+										-routes.each do |i|
+											.if-item{class: "if-#{i[0]}", data: {route_type: i[0]}}
+												.if-text
+													%span= i[1]
+												.if-bg
+						.map-zoom.fullscreen
+							.mz-inner
+								.mz-container
+									%span.mz-out
+									.mz-range
+										%span.mz-level
+									%span.mz-in
+									.mz-indicator<
+										Zoom
+										%br
+										%span.mzi-number> 100
+										\%
+							.ic-links
+								%span.ic-more Learn<br>more
+							.map-more
+								%span.mm-close
+								%article As well as the human traffic a vehicular traffic was taken into account in the master plan of Istoksky. There will be constructed more than 200km of new roads, 5 highway junctions (includes elevated interchanges), crossovers and reconstructed 4 existing road junction. The new road network will be carefully fit into existing network to avoid any traffic issues.
+					.map-container
+						.map-inner
+							.map
+								%img.map-image{src: "images/map_traffic.png", alt: ""}
+								%img.map-stretch{src: "images/map_traffic_roads_overlay.png", alt: ""}
+								%img.map-stretch.route{src: "images/map_traffic_1.png", data: {route_type: 40}, alt: ""}
+								%img.map-stretch.route{src: "images/map_traffic_2.png", data: {route_type: 41}, alt: ""}
+								%img.map-stretch.route{src: "images/map_traffic_3.png", data: {route_type: 42}, alt: ""}
+								%img.map-stretch.route{src: "images/map_traffic_4.png", data: {route_type: 43}, alt: ""}
+								%img.map-stretch.map-drag-element{src: "images/map_traffic_overlay.png", alt: ""}
+								.pin.p-2{style: "left: 3.4%; top: 9.7%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Yekaterinburg Downtown
+								.pin.p-6{style: "left: 12.8%; top: 82%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Ski resort "Uktus"
+								.pin.p-4{style: "left: 53.3%; top: 38.4%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Yekaterinburg beltway
+								.pin.p-4{style: "left: 43.9%; top: 39.1%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Siberian Route
+								.pin.p-0{style: "left: 50.5%; top: 19.4%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text R&D Tech park<br>"Universitetsky" (project)
+								.pin.p-1{style: "left: 52.9%; top: 17.4%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Ural Federal University<br>Campus (project)
+								.label.traffic.centered{style: "left: 17.8%; top: 11.4%;"}
+									.l-inner
+										%div
+											%p Transport Hub
+											%span.lt-1
+											%span.lt-2
+											%span.lt-4
+								.label.traffic.centered{style: "left: 56%; top: 13.3%;"}
+									.l-inner
+										%div
+											%p Transport Hub
+											%span.lt-1
+											%span.lt-2
+											%span.lt-4
+								.label.traffic.centered{style: "left: 79.6%; top: 45.5%;"}
+									.l-inner
+										%div
+											%p Transport Hub
+											%span.lt-1
+											%span.lt-2
+											%span.lt-4
+								.label.traffic.centered{style: "left: 88.8%; top: 79.6%;"}
+									.l-inner
+										%div
+											%p Transport Hub
+											%span.lt-1
+											%span.lt-3
+								.label.traffic.centered{style: "left: 56.3%; top: 91.2%;"}
+									.l-inner
+										%div
+											%p Transport Hub
+											%span.lt-1
+											%span.lt-4
+			=Haml::Engine.new(File.read("src/haml/_footer.haml")).render

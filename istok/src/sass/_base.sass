@@ -1,0 +1,169 @@
+article
+	font-size: $defFontSize
+	word-wrap: break-word
+	position: relative
+	img
+		max-width: 100%
+		height: auto
+		margin-bottom: 20px
+		&.left
+			float: left
+			margin-right: 40px
+		&.right
+			float: right
+			margin-left: 40px
+	ul
+		list-style: none inside
+		margin-bottom: 20px
+		li
+			&:before
+				content: '-'
+				margin-right: 7px
+	table
+		margin-bottom: 20px
+		tr
+			border-bottom: 1px solid #d9d9d9
+			&:first-child
+				border-top: 1px solid #d9d9d9
+		th
+			padding: 10px 15px
+		td
+			padding: 6px 15px
+	strong
+		font-size: 14px
+a
+	color: $linkColor
+	&:hover
+		color: $linkHoverColor
+html
+	height: 100%
+body
+	min-width: $minContainerWidth
+	height: 100%
+	margin: 0
+	font: $defFontStyle #{$defFontSize}/#{$defLineHeight} $bodyFont
+	color: $bodyColor
+	background: $bodyBgColor
+.button
+	text-decoration: none
+	display: inline-block
+	cursor: pointer
+	border: 0
+	&.default
+		background: #96b7c1
+		color: white
+		font-size: 16px
+		line-height: 40px
+		height: 39px
+		padding: 0 10px
+%input
+	background: transparent
+	position: relative
+	z-index: 1
+	width: 100%
+	padding: 8px 15px 9px
+	line-height: 17px
+	border: 0
+	font-size: 14px
+	box-sizing: border-box
+	display: block
+	border: 2px solid #e6e6e6
+	transition: border-color 200ms
+	&.invalid
+		border-color: #df505d
+		+ .invalid-flag
+			opacity: 1
+			visibility: visible
+.input
+	position: relative
+	input
+		@extend %input
+	textarea
+		@extend %input
+.placeholder
+	position: absolute
+	left: 0
+	top: 0
+	white-space: nowrap
+	z-index: 0
+	padding: 11px 0 0 17px
+	color: rgba(0, 0, 0, 0.5)
+	line-height: 17px
+	font-size: inherit
+	transition: color 150ms, opacity 150ms
+	transform-origin: left center
+	input:focus ~ &,
+	textarea:focus ~ &
+		color: rgba(0, 0, 0, 0.3)
+	input.filled ~ &,
+	textarea.filled ~ &
+		opacity: 0
+.invalid-flag
+	color: #c33c40
+	font-size: 12px
+	position: absolute
+	right: 0
+	top: 0
+	padding: 12px 13px 0 0
+	line-height: 17px
+	opacity: 0
+	visibility: hidden
+	transition: visibility 150ms, opacity 150ms
+input
+	~ .for-checked,
+	~ .for-checked-ib
+		display: none
+	~ .for-unchecked
+		display: inline
+	~ .for-unchecked-ib
+		display: inline-block
+	&:checked
+		~ .for-unchecked,
+		~ .for-unchecked-ib
+			display: none
+		~ .for-checked
+			display: inline
+		~ .for-checked-ib
+			display: inline-block
+.inner-overlay
+	+stretch($top: auto, $bottom: auto)
+	min-width: $minContainerWidth
+	overflow-x: hidden
+	overflow-y: auto
+	z-index: 9
+	visibility: hidden
+	opacity: 0
+	transition: visibility 200ms, opacity 200ms
+	> div
+		transition: transform cubic-bezier(.44,.06,.53,1.61) 0ms 200ms
+		transform: scale(0.95)
+	&.visible
+		visibility: visible
+		opacity: 1
+		> div
+			transition: transform cubic-bezier(.44,.06,.53,1.61) 200ms
+			transform: scale(1)
+.page-wrapper
+	height: 100%
+	overflow-x: hidden
+	overflow-y: auto
+main
+	min-width: $minContainerWidth
+	min-height: 100%
+	margin-bottom: -62px
+	display: block
+	position: relative
+	overflow: hidden // achtung
+	&:after
+		content: ''
+		display: block
+		height: 62px
+.container
+	min-width: $minContainerWidth
+	max-width: $maxContainerWidth
+	box-sizing: border-box
+	margin-right: auto
+	margin-left: auto
+.padded
+	padding-right: 20px
+	padding-left: 20px

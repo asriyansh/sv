@@ -1,0 +1,191 @@
+!!!
+%html{data: {modules: "ecology"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Istokskiy")
+	%body.inner.ecology
+		.page-wrapper
+			%main
+				=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+				.full-page-content.fullscreen
+					.map-ecology
+						.me-container.container.padded
+							.me-inner.me-before
+								%img{src: "images/map_ecology_before.png", alt: ""}
+								.pin.large.p-16{style: "left: 10.6%; top: 26.9%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Domestic waste<br>pollution
+								.pin.large.p-18{style: "left: 22.6%; top: 16.9%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Domestic waste<br>pollution of forest
+								.pin.large.p-17{style: "left: 36.9%; top: 30.4%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Sanitary pollution<br>of river Mostovka
+								.pin.large.p-17{style: "left: 41.5%; top: 20.5%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Sanitary pollution<br>of river Mostovka
+								.pin.large.p-16{style: "left: 41.2%; top: 39.7%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Domestic waste<br>pollution
+								.pin.large.p-17{style: "left: 45.8%; top: 66%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Sanitary pollution<br>of river Mostovka
+								.pin.large.p-17{style: "left: 39.3%; top: 72.6%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Sanitary pollution<br>of river Mostovka
+								.pin.large.p-19{style: "left: 62.5%; top: 62.1%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Cement plant
+								.pin.large.p-17{style: "left: 64%; top: 75.5%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Sanitary pollution<br>of river Mostovka
+								.pin.large.p-15{style: "left: 75.9%; top: 50.7%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Farm pollution
+								.pin.large.p-16{style: "left: 71.1%; top: 82.8%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Domestic waste<br>pollution
+							.me-inner.me-after
+								%img{src: "images/map_ecology_after.png", alt: ""}
+								.pin.large.p-10{style: "left: 10.6%; top: 26.9%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Complex construction<br>and domestic waste treatment<br>and complex landscaping
+								.pin.large.p-11{style: "left: 22.6%; top: 16.9%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Complex construction and domestic waste treatment
+								.pin.large.p-12{style: "left: 36.9%; top: 30.4%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Complex sanitary treatment<br>and creating the water<br>protective areas
+								.pin.large.p-12{style: "left: 41.5%; top: 20.5%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Complex sanitary treatment<br>and creating the water<br>protective areas
+								.pin.large.p-14{style: "left: 41.1%; top: 53.5%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Complex construction<br>and domestic waste treatment<br>and recreation areas development
+								.pin.large.p-12{style: "left: 45.8%; top: 66%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Complex sanitary treatment<br>and creating the water<br>protective areas
+								.pin.large.p-12{style: "left: 39.3%; top: 72.6%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Complex sanitary treatment<br>and creating the water<br>protective areas
+								.pin.large.p-14{style: "left: 57.2%; top: 31.7%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Complex construction<br>and domestic waste treatment<br>and recreation areas development
+								.pin.large.p-13{style: "left: 62.1%; top: 47.9%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Istoksky Central park
+								.pin.large.p-10{style: "left: 69.3%; top: 57.7%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Complex construction<br>and domestic waste treatment<br>and complex landscaping
+								.pin.large.p-12{style: "left: 64%; top: 75.5%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Complex sanitary treatment<br>and creating the water<br>protective areas
+								.pin.large.p-14{style: "left: 72.8%; top: 21.5%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Complex construction<br>and domestic waste treatment<br>and recreation areas development
+								.pin.large.p-14{style: "left: 72.1%; top: 87.8%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Complex construction<br>and domestic waste treatment<br>and recreation areas development
+							.me-text.met-before
+								Areas affected by different types of pollution by now
+							.me-text.met-after
+								Polluted areas treatment and landscaping plans
+							.me-side.mes-before Before
+							.me-side.mes-after After
+							.me-clipper
+								%span
+			=Haml::Engine.new(File.read("src/haml/_footer.haml")).render

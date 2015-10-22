@@ -1,0 +1,90 @@
+!!!
+%html{data: {modules: "contacts"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Istokskiy")
+	%body.inner{data: {lang: "ru"}}
+		.page-wrapper
+			%main
+				=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+				.full-page-content.fullscreen
+					.infrastructure-filter-container.container.padded
+						.map-contacts.fullscreen
+							.mc-inner
+								.overflow-container
+									.mc-container
+										%h3 Contacts
+										.mc-tabs
+											%a{href: "#contacts-0"}
+												%span Sales department
+											%a{href: "#contacts-1"}
+												%span Information for investors
+										.mc-tab.sv-tab#contacts-0
+											%article
+												%p MonArch-Development, Ltd
+												%p.large
+													+7 903 504 48 17
+													%br
+													+7 800 234 48 17
+											.contacts-mail
+												%a.large{href: "mailto:sales@mon-arch.ru"} sales@mon-arch.ru
+												%span.mail-us Mail us
+											%article.address-block
+												%p 125284, Leningradskiy prospect, 31A, Moscow, Russia
+												%p
+													%span.cm-bookmark{data: {address: "0"}} See on map
+											%article.address-block
+												%p 620142, Belinskogo str., 111, Yekaterinburg, Russia
+												%p
+													%span.cm-bookmark{data: {address: "1"}} See on map
+										.mc-tab.sv-tab#contacts-1
+											%article
+												%p For more information about investment and business opportunities contact
+											.contact-person
+												%figure
+													%img{src: "images/contact_person.png", alt: ""}
+												%figcaption
+													%p Zinchenko Daria
+													%span Project manager
+											%article
+												%p.large +7 903 504 48 17
+											.contacts-mail
+												%a.large{href: "mailto:d.zinchenko@mon-arch.ru"} d.zinchenko@mon-arch.ru
+												%span.mail-us Mail us
+											%article.address-block
+												%p MonArch-Development, Ltd
+												%p 125284, Leningradskiy prospect, 31A, Moscow, Russia
+												%p
+													%span.cm-bookmark{data: {address: "0"}} See on map
+							.mc-form
+								.overflow-container
+									.mcf-container
+										.justify
+											%h3 Mail us
+											%span.mc-hide Cancel
+										%article
+											%p We’ll be glad to answer your.
+										%form.validate{action: ""}
+											.input
+												%input{type: "text", required: true}
+												%span.invalid-flag Incorrect
+												%span.placeholder Your name
+											.input
+												%input{type: "email", required: true}
+												%span.invalid-flag Incorrect
+												%span.placeholder Your email
+											.input
+												%input{type: "tel", required: true}
+												%span.invalid-flag Incorrect
+												%span.placeholder Your phone
+											.input
+												%textarea{required: true}
+												%span.invalid-flag Incorrect
+												%span.placeholder Your question
+											.justify
+												.input.captcha-container
+													%img{:src => "images/captcha.png", :alt => ""}
+													%span.captcha-refresh
+												.input.captcha-input
+													%input{type: "text", required: true, maxlength: 6}
+												%button.button.default Send
+					.contacts-map-container
+			=Haml::Engine.new(File.read("src/haml/_footer.haml")).render

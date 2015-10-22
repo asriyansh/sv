@@ -1,0 +1,62 @@
+!!!
+%html{data: {modules: "map infrastructure"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Istokskiy")
+	%body.inner
+		.page-wrapper
+			%main
+				=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+				.full-page-content.fullscreen
+					-pins = {20 => "Медцентр", 21 => "Поликлиника", 22 => "Школа", 23 => "Детский сад", 24 => "Бытуслуги", 25 => "Пожарная", 26 => "Магазин", 27 => "Парк", 28 => "Mall", 29 => "Театр", 30 => "Фитнес", 31 => "Паркинг", 32 => "Мульти-паркинг", 33 => "Деловой центр"}
+					.infrastructure-filter-container.container.padded
+						.map-zoom.fullscreen
+							.map-back
+								%h2 Central district
+								.mb-link
+									%span Back
+							.ic-links
+								%div.ic-direction
+						.infrastructure-filter.fullscreen
+							.if-inner
+								%span.if-prev
+								%span.if-next
+								.if-container
+									.if-reel
+										-pins.each do |i|
+											.if-item{class: "if-#{i[0]}", data: {pin_type: i[0]}}
+												.if-text
+													%span= i[1]
+												.if-bg
+					.map-container
+						.map-inner
+							.map.infrastructure-map
+								%img.map-image.map-drag-element{src: "images/map_infrastructure.jpg", alt: ""}
+								.map-text{style: "left: 1.5%; top: 16.3%;"}
+									%p<
+										%span.mt-1 Siberian route
+										%span.mt-2 Yekatirinburg downtown
+										&rarr;
+								-[[22, "left: 6.9%; top: 57.8%;"], [28, "left: 13.7%; top: 46.3%;"], [27, "left: 23.0%; top: 33.7%;"], [28, "left: 27.3%; top: 42.9%;"], [22, "left: 29.7%; top: 20.6%;"], [28, "left: 31.1%; top: 17.1%;"], [22, "left: 41.2%; top: 12.9%;"], [28, "left: 44.4%; top: 67.8%;"], [28, "left: 47.7%; top: 66.2%;"], [27, "left: 58.8%; top: 26.8%;"], [28, "left: 64.5%; top: 33.7%;"], [28, "left: 70.1%; top: 39.0%;"], [27, "left: 76.6%; top: 38.7%;"], [22, "left: 87.7%; top: 32.7%;"], [27, "left: 82.3%; top: 55.7%;"]].each do |i|
+									.pin{class: "p-#{i[0]}", style: i[1], data: {pin_type: i[0], pin_position: "outer"}}
+										.p-container
+											.p-inner
+												.p-content
+													.p-icon
+													.p-text-cropper
+														.p-text= pins[i[0]]
+								-[[32, "left: 38.4%; top: 30.8%;"], [31, "left: 41.6%; top: 34.9%;"], [28, "left: 44.0%; top: 38.1%;"], [30, "left: 43.1%; top: 34.6%;"], [29, "left: 44.8%; top: 36.2%;"], [33, "left: 46.3%; top: 38.9%;"], [23, "left: 45.4%; top: 31.5%;"], [22, "left: 46.0%; top: 32.3%;"], [23, "left: 51.3%; top: 33.4%;"], [23, "left: 56.3%; top: 34.7%;"], [22, "left: 59.0%; top: 34.7%;"], [23, "left: 63.4%; top: 41.1%;"], [22, "left: 64.1%; top: 40.9%;"], [22, "left: 34.5%; top: 41.0%;"], [23, "left: 35.7%; top: 44.7%;"], [22, "left: 34.0%; top: 47.5%;"], [23, "left: 39.5%; top: 40.7%;"], [23, "left: 42.7%; top: 45.3%;"], [22, "left: 40.4%; top: 54.4%;"], [23, "left: 45.6%; top: 56.0%;"], [23, "left: 47.9%; top: 48.6%;"], [26, "left: 48.6%; top: 46.6%;"], [27, "left: 50.3%; top: 44.1%;"], [23, "left: 53.2%; top: 39.9%;"], [26, "left: 54.8%; top: 44.2%;"], [26, "left: 55.3%; top: 47.6%;"], [26, "left: 53.5%; top: 48.8%;"], [23, "left: 57.8%; top: 43.2%;"], [23, "left: 54.8%; top: 53.6%;"], [23, "left: 61.9%; top: 49.4%;"], [22, "left: 57.2%; top: 57.3%;"], [23, "left: 58.1%; top: 59.3%;"], [22, "left: 64.8%; top: 52.4%;"], [23, "left: 66.3%; top: 54.2%;"], [20, "left: 70.1%; top: 70.2%;"], [21, "left: 73.4%; top: 74.1%;"]].each do |i|
+									.pin{class: "p-#{i[0]}", style: i[1], data: {pin_type: i[0], pin_position: "inner"}}
+										.p-container
+											.p-inner
+												.p-content
+													.p-icon
+													.p-text-cropper
+														.p-text= pins[i[0]]
+								.label.medium.valigned.infrastructure-center-label{style: "left: 52.3%; top: 46%;"}
+									.l-inner
+										%div
+											.fll
+												%span.icon-site
+											.oh
+												%p Central
+												%span 63 200 people
+			=Haml::Engine.new(File.read("src/haml/_footer.haml")).render

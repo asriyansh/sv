@@ -1,0 +1,75 @@
+!!!
+%html{data: {modules: "gallery"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Istokskiy")
+	%body.inner
+		.page-wrapper
+			%main
+				=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+				.content
+					.container.padded.clearfix
+						%aside.content-aside.left
+							.aside-slider
+								.as-container.gallery
+									%a.as-slide{href: "images/cool_slide.png", data: {gallery_title: "Title", gallery_text: "text"}}
+										%img{src: "images/as_01.png", alt: ""}
+										%p Diagram of profits for investers groupe 1
+									%a.as-slide{href: "images/as_02.png", data: {gallery_title: "title", gallery_text: "more text"}}
+										%img{src: "images/as_02.png", alt: ""}
+										%p or investers groupe 1 Diagram of profits f
+									%a.as-slide{href: "images/as_03.png", data: {gallery_title: "title", gallery_text: "text again"}}
+										%img{src: "images/as_03.png", alt: ""}
+										%p Diagram
+								.as-controls
+									%span.as-prev
+									%span.as-next
+						%section.content-main
+							%article
+								%h2 Investment opportunities
+								%p Istoksky, being the brand new model of urban life elaborated for convenience of living, is one of the most attractive project for investments and business developing. Whoever you are: operator or end-used, solid developer or novice investor, saving and increasing own wealth, federal or local retailer, you may find the investment offer made in follow of your own needs.
+								%p Discover the wide range of investment offers and proposal below
+							.offer-tabs
+								-["Big offer", "Light offer", "Retail real estate", "Offices"].each_with_index do |i, j|
+									%a{href: "#offer-#{j}"}= i
+							.offer-container
+								.offer-list.sv-tab#offer-0
+									%a{href: ""}
+										%p Offer 1
+										%span Pdf, 1 Mb
+									%a{href: ""}
+										%p Offer 2
+										%span Pdf, 1 Mb
+								.offer-list.sv-tab#offer-1
+									%a{href: ""}
+										%p Offer 1
+										%span Pdf, 1 Mb
+									%a{href: ""}
+										%p Offer 2
+										%span Pdf, 1 Mb
+									%a{href: ""}
+										%p Offer 1
+										%span Pdf, 1 Mb
+									%a{href: ""}
+										%p Offer 2
+										%span Pdf, 1 Mb
+									%a{href: ""}
+										%p Offer 1
+										%span Pdf, 1 Mb
+									%a{href: ""}
+										%p Offer 2
+										%span Pdf, 1 Mb
+								.offer-list.sv-tab#offer-2
+									%a{href: ""}
+										%p Offer 1
+										%span Pdf, 1 Mb
+									%a{href: ""}
+										%p Offer 2
+										%span Pdf, 1 Mb
+									%a{href: ""}
+										%p Offer 2
+										%span Pdf, 1 Mb
+								.offer-list.sv-tab#offer-3
+									%a{href: ""}
+										%p Offer 2
+										%span Pdf, 1 Mb
+				=Haml::Engine.new(File.read("src/haml/_inner_overlay.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_footer.haml")).render

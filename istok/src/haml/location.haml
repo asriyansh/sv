@@ -1,0 +1,88 @@
+!!!
+%html{data: {modules: "map location"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Istokskiy")
+	%body.inner
+		.page-wrapper
+			%main
+				=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+				.full-page-content.fullscreen
+					.map-container
+						.map-inner
+							.map
+								%img.map-image{src: "images/map_location_en.png", alt: ""}
+								%img.map-stretch.map-drag-element{src: "images/map_location_overlay.png", alt: ""}
+								.pin.p-2{style: "left: 3.4%; top: 9.7%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Yekaterinburg Downtown
+								.label.medium.valigned{style: "left: 7.7%; top: 27.9%;"}
+									.l-inner
+										%div
+											.fll
+												%span.icon-office
+											.oh
+												%p Sales office
+												%span 111, Belinskogo Str.
+								.pin.p-6{style: "left: 16.3%; top: 91%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Ski resort "Uktus"
+								.pin.p-4{style: "left: 57.3%; top: 31.7%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Yekaterinburg beltway
+								.pin.p-4{style: "left: 46.9%; top: 35%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Siberian Route
+								.pin.p-0{style: "left: 56.2%; top: 12.7%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text R&D Tech park<br>"Universitetsky" (project)
+								.pin.p-1{style: "left: 57.8%; top: 10.7%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Ural Federal University<br>Campus (project)
+								.label.small.valigned.centered{style: "left: 67.2%; top: 49.1%;"}
+									.l-inner
+										%div
+											%p Sozvezdie district
+								.label.small.valigned.centered{style: "left: 76.6%; top: 34.1%;"}
+									.l-inner
+										%div
+											%p Mostovka district
+								.label.medium.valigned{style: "left: 85.3%; top: 54.9%;"}
+									.l-inner
+										%div
+											.fll
+												%span.icon-site
+											.oh
+												%p Current construction site
+												%span Central district
+								.label.small.valigned.centered{style: "left: 89.2%; top: 78.8%;"}
+									.l-inner
+										%div
+											%p Istok settlement
+								.label.small.valigned.centered{style: "left: 94.3%; top: 41.2%;"}
+									.l-inner
+										%div
+											%p Georgievsky district
+			=Haml::Engine.new(File.read("src/haml/_footer.haml")).render

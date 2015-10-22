@@ -1,0 +1,100 @@
+!!!
+%html{data: {modules: "map roads gallery"}}
+	=Haml::Engine.new(File.read("src/haml/_head.haml")).render(Object.new, title: "Istokskiy")
+	%body.inner.roads.roads-overlay-visible
+		.page-wrapper
+			%main
+				=Haml::Engine.new(File.read("src/haml/_header.haml")).render
+				.full-page-content.fullscreen
+					-routes = {40 => "Автобус", 41 => "Троллейбус", 42 => "Электричка", 43 => "Скоростной транспорт"}
+					.infrastructure-filter-container.container.padded
+						.map-zoom.fullscreen
+							.mz-inner
+								.mz-container
+									%span.mz-out
+									.mz-range
+										%span.mz-level
+									%span.mz-in
+									.mz-indicator<
+										Zoom
+										%br
+										%span.mzi-number> 100
+										\%
+							.ic-links.gallery
+								%a.ic-more{href: "swfNDRxpRLg"} Learn<br>more
+							-# .map-more
+								-# %span.mm-close
+								-# %article As well as the human traffic a vehicular traffic was taken into account in the master plan of Istoksky. There will be constructed more than 200km of new roads, 5 highway junctions (includes elevated interchanges), crossovers and reconstructed 4 existing road junction. The new road network will be carefully fit into existing network to avoid any traffic issues.
+						.map-legend.fullscreen
+							.ml-inner
+								.ml-container
+									%p Roads
+									%ul
+										%li.ml-0 Traffic-free walkway
+										%li.ml-1 Arterial streets
+										%li.ml-2 Highways
+										%li.ml-3 Istoksky main roads
+										%li.ml-4 Siberian Route and Yekaterinburg beltway
+									%p Transport hubs
+									%ul
+										%li.ml-10 New
+										%li.ml-11 Reconstruction
+										%li.ml-12 New cross-over
+										%li.ml-13 Interconnect
+							.ml-toggle
+								.mlt-hide Hide description
+								.mlt-show Show description
+					.map-container
+						.map-inner
+							.map
+								%img.map-image{src: "images/map_traffic.png", alt: ""}
+								%img.map-stretch.map-drag-element{src: "images/map_roads.png", alt: ""}
+								.map-stretch.map-nested
+									%img.map-stretch{src: "images/map_roads_overlay.png", alt: ""}
+									.mn-pin.mn-0{style: "left: 67.1417%; top: 48.205%;"} ≈ 6 km
+									.mn-pin.mn-1{style: "left: 31.401%; top: 31.2039%;"} ≈ 11 km
+								.pin.p-2{style: "left: 3.4%; top: 9.7%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Yekaterinburg Downtown
+								.pin.p-6{style: "left: 12.8%; top: 82%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Ski resort "Uktus"
+								.pin.p-4{style: "left: 53.3%; top: 38.4%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Yekaterinburg beltway
+								.pin.p-4{style: "left: 43.9%; top: 39.1%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Siberian Route
+								.pin.p-0{style: "left: 50.5%; top: 19.4%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text R&D Tech park<br>"Universitetsky" (project)
+								.pin.p-1{style: "left: 52.9%; top: 17.4%;"}
+									.p-container
+										.p-inner
+											.p-content
+												.p-icon
+												.p-text-cropper
+													.p-text Ural Federal University<br>Campus (project)
+							%span.mn-close
+				=Haml::Engine.new(File.read("src/haml/_inner_overlay.haml")).render
+			=Haml::Engine.new(File.read("src/haml/_footer.haml")).render
